@@ -8,17 +8,18 @@ public class Movement : MonoBehaviour
     public float turnSpeed = 200;               //Rotation speed
     public float jumpForce = 80;                //The force applied on the y axis when trying to jump
     public float jumpDelay;                     //Can't jump for jumpDelay amount of time
+    public float jumpHeight;
 
     private float verticalMovement;
     private float horizontalMovement;
-    private float jump;
     private Rigidbody rb;
     private float jumpTimer;
+    private float jumpPower;                    //To keep track of how much jump power the player still has
+    private Collider col;
 
-    float jumpHeight;
 
 
-    private bool onGround()
+    private bool Grounded()
     {
         Ray distToGround = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
@@ -29,9 +30,22 @@ public class Movement : MonoBehaviour
             return false;
     }
 
+    private bool Walled()
+    {
+        Ray distToWall = new Ray(transform.position, Vector3.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(distToWall, out hit) && Vector3.Distance(transform.position, hit.point) < col.bounds.size.z)
+            return true;
+        else
+            return false;
+    }
+
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
     }
 
     void FixedUpdate()
@@ -46,13 +60,19 @@ public class Movement : MonoBehaviour
         float horizontalMovement = Input.GetAxisRaw("Horizontal") * Time.deltaTime * turnSpeed;
         float inAirMultip;
 
-        if (onGround())
+        if (Grounded())
             inAirMultip = 1;
         else
             inAirMultip = 0.5f;
 
         if (rb.velocity.magnitude < maxSpeed && verticalMovement != 0)
-            rb.AddForce(transform.forward * verticalMovement * inAirMultip, ForceMode.VelocityChange);
+        {
+            if (!Walled() && verticalMovement > 0)
+                rb.AddForce(transform.forward * verticalMovement * inAirMultip, ForceMode.VelocityChange);
+            else if (verticalMovement < 0)
+                rb.AddForce(transform.forward * verticalMovement * inAirMultip, ForceMode.VelocityChange);
+        }
+
 
         if (horizontalMovement != 0)
             rb.MoveRotation(rb.rotation * Quaternion.Euler(rb.rotation.x, rb.rotation.y + horizontalMovement, rb.rotation.z));
@@ -64,17 +84,19 @@ public class Movement : MonoBehaviour
 
         if (jump)
         {
-            if (jumpHeight > 0)
+            if (jumpPower > 0)
             {
-                jumpHeight -= Time.deltaTime * 30;
+                jumpPower -= Time.deltaTime * 30;
             }
+            else if (jumpPower < 0)
+                jumpPower = 0;
 
-            rb.AddForce((Vector3.up * jumpForce) * jumpHeight, ForceMode.Impulse);
+            rb.AddForce((Vector3.up * jumpForce) * jumpPower, ForceMode.Impulse);
         }
         if (Input.GetButtonUp("Jump"))
-            jumpHeight = 0;
+            jumpPower = 0;
 
-        if (onGround())
-            jumpHeight = jumpForce;
+        if (Grounded())
+            jumpPower = jumpHeight / 2;
     }
 }
