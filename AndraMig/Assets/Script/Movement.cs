@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public float jumpForce = 80;                //The force applied on the y axis when trying to jump
     public float jumpDelay;                     //Can't jump for jumpDelay amount of time
     public float jumpHeight;
+    public GameObject camera;
 
     private float verticalMovement;
     private float horizontalMovement;
@@ -21,16 +22,11 @@ public class Movement : MonoBehaviour
 
     bool jumpBool;
 
-    public GameObject camera;
-
-
 
     private bool Grounded()
     {
         Ray distToGround = new Ray(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), Vector3.down);
-
         Debug.DrawRay(distToGround.origin, distToGround.direction * 0.3f, Color.red);
-
 
         if (Physics.Raycast(distToGround, 0.3f))
             return true;
@@ -68,33 +64,34 @@ public class Movement : MonoBehaviour
         Attack();
 
         anim.SetBool("Grounded", Grounded());
+
     }
 
     void Run()
     {
-        float verticalMovement = Input.GetAxisRaw("Vertical") * Time.deltaTime * acceleration;
-        float horizontalMovement = Input.GetAxisRaw("Horizontal") * Time.deltaTime * turnSpeed;
+        float verticalMovement = Input.GetAxisRaw("Vertical");
+        float horizontalMovement = Input.GetAxisRaw("Horizontal");
         float inAirMultip;
+        Vector3 moveForward = new Vector3(camera.transform.forward.x, 0, camera.transform.forward.z);
+        Vector3 moveRight = new Vector3(camera.transform.right.x, 0, camera.transform.right.z);
+        Vector3 lookRotation = moveForward * verticalMovement + moveRight * horizontalMovement;
+
 
         anim.SetFloat("Speed", rb.velocity.magnitude);
+
+
+        if (lookRotation != Vector3.zero)
+            rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(lookRotation), 0.1f));
 
 
         if (Grounded())
             inAirMultip = 1;
         else
-            inAirMultip = 0.5f;
+            inAirMultip = 0.7f;
 
-        if (rb.velocity.magnitude < maxSpeed && verticalMovement != 0)
-        {
-            if (!Walled() && verticalMovement > 0)
-                rb.AddForce(transform.forward * verticalMovement * inAirMultip, ForceMode.VelocityChange);
-            else if (verticalMovement < 0)
-                rb.AddForce(transform.forward * verticalMovement * inAirMultip, ForceMode.VelocityChange);
-        }
+        if (rb.velocity.magnitude < maxSpeed)
+            rb.AddForce((moveForward * verticalMovement) + (moveRight * horizontalMovement) * Time.deltaTime * acceleration, ForceMode.VelocityChange);
 
-
-        if (horizontalMovement != 0)
-            rb.MoveRotation(rb.rotation * Quaternion.Euler(rb.rotation.x, rb.rotation.y + horizontalMovement, rb.rotation.z));
     }
 
     void Jump()
@@ -124,7 +121,6 @@ public class Movement : MonoBehaviour
         {
             jumpPower = jumpHeight / 2;
             jumpBool = false;
-
         }
     }
 
