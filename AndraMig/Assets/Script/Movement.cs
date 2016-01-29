@@ -17,14 +17,22 @@ public class Movement : MonoBehaviour
     private float jumpPower;                    //To keep track of how much jump power the player still has
     private Collider col;
 
+    private Animator anim;
+
+    bool jumpBool;
+
+    public GameObject camera;
+
 
 
     private bool Grounded()
     {
-        Ray distToGround = new Ray(transform.position, Vector3.down);
-        RaycastHit hit;
+        Ray distToGround = new Ray(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), Vector3.down);
 
-        if (Physics.Raycast(distToGround, out hit) && Vector3.Distance(transform.position, hit.point) < 1.2f)
+        Debug.DrawRay(distToGround.origin, distToGround.direction * 0.3f, Color.red);
+
+
+        if (Physics.Raycast(distToGround, 0.3f))
             return true;
         else
             return false;
@@ -32,13 +40,17 @@ public class Movement : MonoBehaviour
 
     private bool Walled()
     {
-        Ray distToWall = new Ray(transform.position, Vector3.forward);
-        RaycastHit hit;
+        Ray distToWall = new Ray(new Vector3(transform.position.x, col.transform.position.y, transform.position.z), Vector3.forward);
 
-        if (Physics.Raycast(distToWall, out hit) && Vector3.Distance(transform.position, hit.point) < col.bounds.size.z)
+        Debug.DrawRay(distToWall.origin, distToWall.direction * 0.5f, Color.blue);
+        /*
+
+        if (Physics.Raycast(distToWall, 0.2f))
             return true;
         else
-            return false;
+            return false; */
+
+        return false;
     }
 
 
@@ -46,12 +58,16 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
         Run();
         Jump();
+        Attack();
+
+        anim.SetBool("Grounded", Grounded());
     }
 
     void Run()
@@ -59,6 +75,9 @@ public class Movement : MonoBehaviour
         float verticalMovement = Input.GetAxisRaw("Vertical") * Time.deltaTime * acceleration;
         float horizontalMovement = Input.GetAxisRaw("Horizontal") * Time.deltaTime * turnSpeed;
         float inAirMultip;
+
+        anim.SetFloat("Speed", rb.velocity.magnitude);
+
 
         if (Grounded())
             inAirMultip = 1;
@@ -82,14 +101,19 @@ public class Movement : MonoBehaviour
     {
         bool jump = Input.GetButton("Jump");
 
+        anim.SetBool("Jump", jumpBool);
+
         if (jump)
         {
             if (jumpPower > 0)
             {
                 jumpPower -= Time.deltaTime * 30;
+                jumpBool = true;
             }
             else if (jumpPower < 0)
+            {
                 jumpPower = 0;
+            }
 
             rb.AddForce((Vector3.up * jumpForce) * jumpPower, ForceMode.Impulse);
         }
@@ -97,6 +121,18 @@ public class Movement : MonoBehaviour
             jumpPower = 0;
 
         if (Grounded())
+        {
             jumpPower = jumpHeight / 2;
+            jumpBool = false;
+
+        }
+    }
+
+    void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetTrigger("Attack");
+        }
     }
 }
