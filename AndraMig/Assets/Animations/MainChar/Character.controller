@@ -13,47 +13,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-<<<<<<< HEAD
-    m_Controller: {fileID: 0}
-=======
     m_Controller: {fileID: 9100000}
->>>>>>> master
   - m_Name: Grounded
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-<<<<<<< HEAD
-    m_Controller: {fileID: 0}
-=======
     m_Controller: {fileID: 9100000}
->>>>>>> master
   - m_Name: Jump
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-<<<<<<< HEAD
-    m_Controller: {fileID: 0}
-=======
     m_Controller: {fileID: 9100000}
->>>>>>> master
   - m_Name: Attack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-<<<<<<< HEAD
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: AttackCollider
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-=======
     m_Controller: {fileID: 9100000}
->>>>>>> master
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -193,7 +177,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
-<<<<<<< HEAD
 --- !u!1101 &110159780
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -290,8 +273,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
-=======
->>>>>>> master
 --- !u!1101 &110193704
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -320,16 +301,10 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: punch1
-<<<<<<< HEAD
   m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110192624}
-=======
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
->>>>>>> master
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -338,11 +313,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: 140fe30d2cdd30e46ade249559099612, type: 3}
-=======
-  m_Motion: {fileID: 7400030, guid: 27e3c549033357241839f93f716e98b3, type: 3}
->>>>>>> master
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -371,7 +342,6 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-<<<<<<< HEAD
 --- !u!1102 &110257242
 AnimatorState:
   serializedVersion: 5
@@ -396,8 +366,6 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-=======
->>>>>>> master
 --- !u!1102 &110265418
 AnimatorState:
   serializedVersion: 5
@@ -490,7 +458,6 @@ AnimatorStateMachine:
     m_Position: {x: 516, y: 12, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110223546}
-<<<<<<< HEAD
     m_Position: {x: 144, y: -96, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110269078}
@@ -502,14 +469,6 @@ AnimatorStateMachine:
   m_AnyStateTransitions:
   - {fileID: 110176248}
   - {fileID: 110161682}
-=======
-    m_Position: {x: 194, y: -81, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 110269078}
-    m_Position: {x: 516, y: -156, z: 0}
-  m_ChildStateMachines: []
-  m_AnyStateTransitions: []
->>>>>>> master
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
