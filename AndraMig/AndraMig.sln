@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndraMig.CSharp.Plugins", "AndraMig.CSharp.Plugins.csproj", "{507FFE85-D940-58B9-4145-63A94A744A38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndraMig.CSharp", "AndraMig.CSharp.csproj", "{E6C4F7A7-4DC0-9AEE-3F02-D20406ABCD43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndraMig.CSharp.Editor", "AndraMig.CSharp.Editor.csproj", "{181E76F2-88D0-65BA-5603-4ECAB61AC787}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{507FFE85-D940-58B9-4145-63A94A744A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{507FFE85-D940-58B9-4145-63A94A744A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{507FFE85-D940-58B9-4145-63A94A744A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{507FFE85-D940-58B9-4145-63A94A744A38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6C4F7A7-4DC0-9AEE-3F02-D20406ABCD43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6C4F7A7-4DC0-9AEE-3F02-D20406ABCD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6C4F7A7-4DC0-9AEE-3F02-D20406ABCD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6C4F7A7-4DC0-9AEE-3F02-D20406ABCD43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{181E76F2-88D0-65BA-5603-4ECAB61AC787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{181E76F2-88D0-65BA-5603-4ECAB61AC787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{181E76F2-88D0-65BA-5603-4ECAB61AC787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{181E76F2-88D0-65BA-5603-4ECAB61AC787}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
