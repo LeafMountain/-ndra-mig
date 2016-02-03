@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/TestMovement.unity
+- path: Assets/Intro_Field_Azul/testfield.unity
   isLoaded: 1
   isActive: 1
