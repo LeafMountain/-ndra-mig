@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Movement : MonoBehaviour
 {
-<<<<<<< HEAD
     public float acceleration = 40;                     //How fast the character will accelerate
     public float maxSpeed = 5;                          //The velocity limit
     public float turnSpeed = 10;                        //Rotation speed
@@ -12,27 +11,13 @@ public class Movement : MonoBehaviour
     public float jumpHeight = 5;
     public GameObject camera;
     public GameObject attackCol;
-=======
-    public float acceleration = 20;             //How fast the character will accelerate
-    public float maxSpeed;                      //The velocity limit
-    public float turnSpeed = 200;               //Rotation speed
-    public float jumpForce = 80;                //The force applied on the y axis when trying to jump
-    public float jumpDelay;                     //Can't jump for jumpDelay amount of time
-    public float jumpHeight;
-    public GameObject camera;
->>>>>>> master
 
     private float verticalMovement;
     private float horizontalMovement;
     private Rigidbody rb;
     private float jumpTimer;
-<<<<<<< HEAD
     private float jumpPower;                            //To keep track of how much jump power the player still has
-=======
-    private float jumpPower;                    //To keep track of how much jump power the player still has
->>>>>>> master
     private Collider col;
-
     private Animator anim;
 
     bool jumpBool;
@@ -51,33 +36,13 @@ public class Movement : MonoBehaviour
 
     private bool Walled()
     {
-<<<<<<< HEAD
         Ray distToWall = new Ray(col.bounds.center, rb.transform.forward);
 
         Debug.DrawRay(distToWall.origin, distToWall.direction * col.bounds.size.z, Color.blue);
 
-=======
-        Ray distToWall = new Ray(new Vector3(transform.position.x, col.transform.position.y, transform.position.z), Vector3.forward);
-
-        Debug.DrawRay(distToWall.origin, distToWall.direction * 0.5f, Color.blue);
-        /*
->>>>>>> master
-
-        if (Physics.Raycast(distToWall, 0.2f))
-            return true;
-        else
-<<<<<<< HEAD
-            return false;
-    }
-
-=======
-            return false; */
-
         return false;
     }
 
-
->>>>>>> master
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -92,10 +57,6 @@ public class Movement : MonoBehaviour
         Attack();
 
         anim.SetBool("Grounded", Grounded());
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     }
 
     void Run()
@@ -107,19 +68,10 @@ public class Movement : MonoBehaviour
         Vector3 moveRight = new Vector3(camera.transform.right.x, 0, camera.transform.right.z);
         Vector3 lookRotation = moveForward * verticalMovement + moveRight * horizontalMovement;
 
-<<<<<<< HEAD
         anim.SetFloat("Speed", rb.velocity.magnitude);
 
         if (lookRotation != Vector3.zero)
             rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(lookRotation), Time.deltaTime * turnSpeed));
-=======
-
-        anim.SetFloat("Speed", rb.velocity.magnitude);
-
-
-        if (lookRotation != Vector3.zero)
-            rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(lookRotation), 0.1f));
->>>>>>> master
 
 
         if (Grounded())
@@ -127,14 +79,8 @@ public class Movement : MonoBehaviour
         else
             inAirMultip = 0.7f;
 
-<<<<<<< HEAD
         if (rb.velocity.magnitude < maxSpeed && !Walled())
             rb.AddForce(((moveForward * verticalMovement) * Time.deltaTime * acceleration) + ((moveRight * horizontalMovement) * Time.deltaTime * acceleration), ForceMode.VelocityChange);
-=======
-        if (rb.velocity.magnitude < maxSpeed)
-            rb.AddForce((moveForward * verticalMovement) + (moveRight * horizontalMovement) * Time.deltaTime * acceleration, ForceMode.VelocityChange);
->>>>>>> master
-
     }
 
     void Jump()
@@ -169,7 +115,6 @@ public class Movement : MonoBehaviour
 
     void Attack()
     {
-<<<<<<< HEAD
         if (Input.GetButtonDown("Fire1"))
         {
             if (!Grounded())
@@ -186,11 +131,9 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel"))
             Application.LoadLevel(Application.loadedLevel);
-=======
         if (Input.GetKeyDown(KeyCode.E))
         {
             anim.SetTrigger("Attack");
         }
->>>>>>> master
     }
 }

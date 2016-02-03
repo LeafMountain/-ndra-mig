@@ -72,7 +72,6 @@
     <Compile Include="Assets\CameraTrack.cs" />
     <Compile Include="Assets\Point.cs" />
     <Compile Include="Assets\Script\AnimIK.cs" />
-    <Compile Include="Assets\Script\ArmAttackTest.cs" />
     <Compile Include="Assets\Script\CameraMovement.cs" />
     <Compile Include="Assets\Script\Health.cs" />
     <Compile Include="Assets\Script\Movement.cs" />
