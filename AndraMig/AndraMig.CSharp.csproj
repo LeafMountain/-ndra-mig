@@ -78,6 +78,7 @@
     <Compile Include="Assets\Script\Water.cs" />
     <Compile Include="Assets\Script\Water_ripples.cs" />
     <Compile Include="Assets\Testshit.cs" />
+    <Compile Include="Assets\Ui_testing_azul\disenableUi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
