@@ -15,7 +15,7 @@ public class Water : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        hitPoint = new Ray(col.GetComponent<Collider>().bounds.center, Vector3.down);
+        hitPoint = new Ray(col.transform.position + Vector3.up, Vector3.down);
 
         if (Physics.Raycast(hitPoint, out hit, Mathf.Infinity) && !IsInvoking("Ripple"))
         {
