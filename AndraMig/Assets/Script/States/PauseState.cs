@@ -8,14 +8,17 @@ namespace Assets.Script.States
 		private GameStateManager gameStateManager;
 		private GameObject canvas;
 		private ControllerUI cUI;
+		private AudioManager audioManager;
 
-		public PauseState (GameStateManager managerRef, GameObject canvasRef, ControllerUI cUIRef)
+		public PauseState (GameStateManager managerRef)
 		{
 			Debug.Log("Constructing PauseState");
 			gameStateManager = managerRef;
-			cUI = cUIRef;
+			cUI = gameStateManager.GetControllerUI();
+			audioManager = gameStateManager.GetAudioManager();
+			canvas = gameStateManager.GetCavnas();
 
-			canvas = canvasRef;
+			audioManager.PauseMusic();
 
 			Time.timeScale = 0;
 			ShowIt();
@@ -24,10 +27,14 @@ namespace Assets.Script.States
 		{
 			if(Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.Joystick1Button7) || Input.GetKeyUp(KeyCode.Joystick1Button1))
 			{
-				gameStateManager.SwitchState(new PlayState(gameStateManager, canvas, cUI));
+				gameStateManager.SwitchState(new PlayState(gameStateManager));
 				canvas.transform.GetChild(3).transform.gameObject.SetActive(true);
 				canvas.transform.GetChild(4).transform.gameObject.SetActive(false);
 
+			}
+			if(Input.GetKeyUp(KeyCode.Joystick1Button0) || Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.Space))
+			{
+				audioManager.PlaySelect();
 			}
 		}
 		public void ShowIt()

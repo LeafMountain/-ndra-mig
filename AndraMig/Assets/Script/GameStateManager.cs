@@ -11,6 +11,7 @@ public class GameStateManager : MonoBehaviour {
 	private IStateBase activeState;
 	private ControllerUI cUI;
 	private GameObject canvas;
+	private AudioManager audioManager;
 
 	private static GameStateManager instanceRef;
 
@@ -31,7 +32,11 @@ public class GameStateManager : MonoBehaviour {
 	void Start () {
 		cUI = GetComponent<ControllerUI>();
 		canvas = gameObject.transform.GetChild(0).transform.gameObject;
-		activeState = new BeginState(this, canvas, cUI);
+		audioManager = gameObject.transform.GetChild(1).GetComponent<AudioManager>();
+		activeState = new BeginState(this);
+
+		audioManager.PlaySong("Myspals_introSongStart");
+
 
 	}
 	void Update () {
@@ -45,5 +50,17 @@ public class GameStateManager : MonoBehaviour {
 	public void SwitchState(IStateBase newState)
 	{
 		activeState = newState;
+	}
+	public GameObject GetCavnas()
+	{
+		return canvas;
+	}
+	public ControllerUI GetControllerUI()
+	{
+		return cUI;
+	}
+	public AudioManager GetAudioManager()
+	{
+		return audioManager;
 	}
 }

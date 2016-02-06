@@ -1,4 +1,4 @@
-﻿//Detta script gör em lista på knappar som man sedan kan navigera med en kontroll.
+﻿//Detta script gör en lista på knappar som man sedan kan navigera med en kontroll.
 
 using UnityEngine;
 using System.Collections.Generic;

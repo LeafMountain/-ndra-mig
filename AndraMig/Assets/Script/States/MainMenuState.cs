@@ -8,13 +8,16 @@ namespace Assets.Script.States
 		private GameStateManager gameStateManager;
 		private GameObject canvas;
 		private ControllerUI cUI;
+		private AudioManager audioManager;
 
-		public MainMenuState (GameStateManager managerRef, GameObject canvasRef, ControllerUI cUIRef)
+		public MainMenuState (GameStateManager managerRef)
 		{
 			Debug.Log("Constructing MainState");
 			gameStateManager = managerRef;
-			canvas = canvasRef;
-			cUI = cUIRef;
+			canvas = gameStateManager.GetCavnas();
+			cUI = gameStateManager.GetControllerUI();
+			audioManager = gameStateManager.GetAudioManager();
+
 			ShowIt();
 
 		}
@@ -22,12 +25,21 @@ namespace Assets.Script.States
 		{
 			if(Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.Joystick1Button1))
 			{
-				gameStateManager.SwitchState(new BeginState(gameStateManager, canvas, cUI));
+				gameStateManager.SwitchState(new BeginState(gameStateManager));
 				canvas.transform.GetChild(1).gameObject.SetActive(true);
 				canvas.transform.GetChild(2).gameObject.SetActive(false);
 
-				cUI.Select(canvas.transform.GetChild(1).gameObject);
+				audioManager.PlayPause();
 
+				cUI.Select(canvas.transform.GetChild(1).gameObject);
+			}
+			if(Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow))
+			{
+				audioManager.PlayMoveJoyStickSound();
+			}
+			if(Input.GetKeyUp(KeyCode.Joystick1Button0) || Input.GetKeyUp(KeyCode.Return))
+			{
+				audioManager.PlaySelect();
 			}
 		}
 		public void ShowIt()

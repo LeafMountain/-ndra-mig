@@ -9,23 +9,33 @@ namespace Assets.Script.States
 		private GameStateManager gameStateManager;
 		private GameObject canvas;
 		private ControllerUI cUI;
+		private AudioManager audioManager;
+		private GameObject gameBrain;
 
 
-		public BeginState (GameStateManager managerRef, GameObject canvasRef, ControllerUI cUIRef)
+		public BeginState (GameStateManager managerRef)
 		{
 			Debug.Log("Constructing BeginState");
 			gameStateManager = managerRef;
-			cUI = cUIRef;
-			canvas = canvasRef;
+			cUI = gameStateManager.GetControllerUI();
+			canvas = gameStateManager.GetCavnas();
+			audioManager = gameStateManager.GetAudioManager();
+
 			ShowIt();
+
+
+
+		
+
 		}
 		public void StateUpdate()
 		{
 			if(Input.GetKeyUp(KeyCode.Joystick1Button7) || Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.Space))
 			{
-				gameStateManager.SwitchState(new MainMenuState(gameStateManager, canvas, cUI));
+				gameStateManager.SwitchState(new MainMenuState(gameStateManager));
 				canvas.transform.GetChild(1).transform.gameObject.SetActive(false);
 
+				audioManager.PlaySelect();
 
 				cUI.Select(canvas.transform.GetChild(2).GetChild(0).gameObject);
 			}

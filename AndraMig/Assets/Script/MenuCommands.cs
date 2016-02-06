@@ -7,6 +7,7 @@ using Assets.Script.States;
 
 public class MenuCommands : MonoBehaviour {
 
+	private	AudioManager audioManager;
 	private GameStateManager manager;
 	private GameObject canvas;
 	private ControllerUI cUI;
@@ -18,6 +19,8 @@ public class MenuCommands : MonoBehaviour {
 		manager = GetComponent<GameStateManager>();
 		canvas = GameObject.Find("Canvas");
 		cUI = GetComponent<ControllerUI>();
+		audioManager = GetComponent<AudioManager>();
+
 
 		quitting = false;
 	}
@@ -28,23 +31,31 @@ public class MenuCommands : MonoBehaviour {
 	}
 	public void NewGame()
 	{
+
 		SceneManager.LoadScene("AxelTest");
-		manager.SwitchState(new PlayState(manager, canvas, cUI));
+		manager.SwitchState(new PlayState(manager));
 		canvas.transform.GetChild(0).gameObject.SetActive(false);
 		canvas.transform.GetChild(2).gameObject.SetActive(false);
+
+
 
 	}
 		
 	public void Resume()
 	{
-		manager.SwitchState(new PlayState(manager, canvas, cUI));
+		
+		manager.SwitchState(new PlayState(manager));
 		canvas.transform.GetChild(3).gameObject.SetActive(true);
 		canvas.transform.GetChild(4).gameObject.SetActive(false);
+
+
 	}
 	public void ReturnToMainMenu()
 	{
 		canvas.transform.GetChild(5).gameObject.SetActive(true);
 		canvas.transform.GetChild(4).gameObject.SetActive(false);
+
+
 
 		cUI.Select(canvas.transform.GetChild(5).GetChild(1).gameObject);
 	}
@@ -53,6 +64,8 @@ public class MenuCommands : MonoBehaviour {
 		quitting = true;
 		canvas.transform.GetChild(5).gameObject.SetActive(true);
 		canvas.transform.GetChild(4).gameObject.SetActive(false);
+
+
 
 		cUI.Select(canvas.transform.GetChild(5).GetChild(1).gameObject);
 	}
@@ -70,8 +83,11 @@ public class MenuCommands : MonoBehaviour {
 	}
 	public void No()
 	{
+
 		canvas.transform.GetChild(5).gameObject.SetActive(false);
 		canvas.transform.GetChild(4).gameObject.SetActive(true);
+
+
 
 		cUI.Select(canvas.transform.GetChild(4).GetChild(1).gameObject);
 	}
