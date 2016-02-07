@@ -65,7 +65,6 @@ public class Movement : MonoBehaviour
         Run();
         Jump();
         Attack();
-        Debug.Log(LedgeGrab());
 
         anim.SetBool("Grounded", Grounded());
     }
@@ -84,7 +83,7 @@ public class Movement : MonoBehaviour
         if (lookRotation != Vector3.zero)
             rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(lookRotation), Time.deltaTime * turnSpeed));
 
-        if (rb.velocity.magnitude < maxSpeed * sprint && !Walled())
+        if (rb.velocity.magnitude < maxSpeed && !Walled())
             rb.AddForce(((moveForward * verticalMovement) * Time.deltaTime * acceleration) + ((moveRight * horizontalMovement) * Time.deltaTime * acceleration), ForceMode.VelocityChange);
 
     }
