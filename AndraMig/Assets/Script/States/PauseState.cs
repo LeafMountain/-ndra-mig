@@ -39,10 +39,6 @@ namespace Assets.Script.States
 				canvas.transform.GetChild(5).transform.gameObject.SetActive(false);
 
 			}
-			if(Input.GetKeyUp(KeyCode.Joystick1Button0) || Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.Space))
-			{
-				audioManager.PlaySelect();
-			}
 		}
 		public void ShowIt()
 		{
