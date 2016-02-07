@@ -37,10 +37,6 @@ namespace Assets.Script.States
 			{
 				audioManager.PlayMoveJoyStickSound();
 			}
-			if(Input.GetKeyUp(KeyCode.Joystick1Button0) || Input.GetKeyUp(KeyCode.Return))
-			{
-				audioManager.PlaySelect();
-			}
 		}
 		public void ShowIt()
 		{

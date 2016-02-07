@@ -4,13 +4,22 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using Assets.Script.States;
+using UnityEngine.UI;
 
 public class MenuCommands : MonoBehaviour {
 
 	private	AudioManager audioManager;
 	private GameStateManager manager;
+
 	private GameObject canvas;
+	private GameObject pausePanel;
+	private GameObject areUSurePanel;
+
 	private ControllerUI cUI;
+
+	private TextAsset quittingText;
+	private TextAsset returnToMainMenuText;
+
 
 	private bool quitting;
 
@@ -21,6 +30,11 @@ public class MenuCommands : MonoBehaviour {
 		cUI = GetComponent<ControllerUI>();
 		audioManager = GetComponent<AudioManager>();
 
+		pausePanel = canvas.transform.GetChild(4).gameObject;
+		areUSurePanel = canvas.transform.GetChild(5).gameObject;
+
+		quittingText = Resources.Load("Text/AreYouSure/Quitting") as TextAsset;
+		returnToMainMenuText = Resources.Load("Text/AreYouSure/ReturntoMainMenu") as TextAsset;
 
 		quitting = false;
 	}
@@ -46,25 +60,26 @@ public class MenuCommands : MonoBehaviour {
 		
 		manager.SwitchState(new PlayState(manager));
 		canvas.transform.GetChild(3).gameObject.SetActive(true);
-		canvas.transform.GetChild(4).gameObject.SetActive(false);
+		pausePanel.SetActive(false);
 
 
 	}
 	public void ReturnToMainMenu()
 	{
-		canvas.transform.GetChild(5).gameObject.SetActive(true);
-		canvas.transform.GetChild(4).gameObject.SetActive(false);
+		areUSurePanel.SetActive(true);
+		pausePanel.gameObject.SetActive(false);
 
-
+		areUSurePanel.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = returnToMainMenuText.ToString();
 
 		cUI.Select(canvas.transform.GetChild(5).GetChild(1).gameObject);
 	}
 	public void QuitGame()
 	{
 		quitting = true;
-		canvas.transform.GetChild(5).gameObject.SetActive(true);
-		canvas.transform.GetChild(4).gameObject.SetActive(false);
+		areUSurePanel.SetActive(true);
+		pausePanel.SetActive(false);
 
+		areUSurePanel.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = quittingText.ToString();
 
 
 		cUI.Select(canvas.transform.GetChild(5).GetChild(1).gameObject);
@@ -84,10 +99,10 @@ public class MenuCommands : MonoBehaviour {
 	public void No()
 	{
 
-		canvas.transform.GetChild(5).gameObject.SetActive(false);
-		canvas.transform.GetChild(4).gameObject.SetActive(true);
+		areUSurePanel.gameObject.SetActive(false);
+		pausePanel.gameObject.SetActive(true);
 
-
+		quitting = false;
 
 		cUI.Select(canvas.transform.GetChild(4).GetChild(1).gameObject);
 	}
