@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/AlexScene.unity
+=======
+- path: Assets/Test_Field_2.unity
+>>>>>>> 427eb9b6f2b9496bcc4d986f5e0ddeeaae1d9761
   isLoaded: 1
   isActive: 1
