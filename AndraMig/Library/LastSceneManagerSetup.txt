@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Test_Field_2.unity
+=======
+- path: Assets/Scenes/AxelTest.unity
+>>>>>>> refs/remotes/origin/master
   isLoaded: 1
   isActive: 1
