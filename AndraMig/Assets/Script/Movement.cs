@@ -67,6 +67,7 @@ public class Movement : MonoBehaviour
         Attack();
 
         anim.SetBool("Grounded", Grounded());
+        Debug.Log(Input.GetAxisRaw("TriggerRight"));
     }
 
     void Run()
@@ -76,15 +77,15 @@ public class Movement : MonoBehaviour
         Vector3 moveForward = new Vector3(camera.transform.forward.x, 0, camera.transform.forward.z);
         Vector3 moveRight = new Vector3(camera.transform.right.x, 0, camera.transform.right.z);
         Vector3 lookRotation = moveForward * verticalMovement + moveRight * horizontalMovement;
-        float sprint = (Input.GetAxisRaw("TriggerRight") < 1) ? sprintMultip : 1;
+        float sprint = (Input.GetAxisRaw("TriggerRight") != 0) ? sprintMultip : 1;
 
         anim.SetFloat("Speed", rb.velocity.magnitude);
 
         if (lookRotation != Vector3.zero)
             rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(lookRotation), Time.deltaTime * turnSpeed));
 
-        if (rb.velocity.magnitude < maxSpeed && !Walled())
-            rb.AddForce(((moveForward * verticalMovement) * Time.deltaTime * acceleration * sprint) + ((moveRight * horizontalMovement) * Time.deltaTime * acceleration), ForceMode.VelocityChange);
+        if (rb.velocity.magnitude < maxSpeed * sprint && !Walled())
+            rb.AddForce(((moveForward * verticalMovement) * Time.deltaTime * acceleration) + ((moveRight * horizontalMovement) * Time.deltaTime * acceleration), ForceMode.VelocityChange);
 
     }
 
