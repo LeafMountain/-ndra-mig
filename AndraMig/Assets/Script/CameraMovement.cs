@@ -39,7 +39,7 @@ public class CameraMovement : MonoBehaviour
 
         //Moves camera by using right joystick
         if (hRight != 0)
-            transform.position = Vector3.Lerp(transform.position, transform.position + transform.right * hRight, Time.deltaTime * smooth * 5);
+            transform.position = Vector3.Lerp(transform.position, transform.position + transform.right * hRight + transform.up * vRight, Time.deltaTime * smooth * 5);
         //Press Fire1 to put camera behind target
         if (Input.GetButton("Fire2"))
             transform.position = Vector3.Lerp(transform.position, behind, Time.deltaTime * smooth);
