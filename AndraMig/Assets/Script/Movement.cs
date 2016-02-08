@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     public float jumpForce = 15;                        //The force applied on the y axis when trying to jump
     public float jumpDelay = 0.8f;                      //Can't jump for jumpDelay amount of time
     public float jumpHeight = 5;
-    public GameObject camera;
+    public GameObject cam;
     public GameObject attackCol;
 
     private float verticalMovement;
@@ -32,10 +32,6 @@ public class Movement : MonoBehaviour
         Ray top = new Ray(col.bounds.center + Vector3.up, transform.forward);
         Ray mid = new Ray(col.bounds.center, transform.forward);
         Ray low = new Ray(col.bounds.center + Vector3.down, transform.forward);
-
-        Debug.DrawRay(top.origin, top.direction * col.bounds.size.z, Color.blue);
-        Debug.DrawRay(mid.origin, mid.direction * col.bounds.size.z, Color.blue);
-        Debug.DrawRay(low.origin, low.direction * col.bounds.size.z, Color.blue);
 
         return (Physics.Raycast(top, col.bounds.size.z) || Physics.Raycast(mid, col.bounds.size.z) || Physics.Raycast(low, col.bounds.size.z)) ? true : false;
     }
@@ -67,26 +63,22 @@ public class Movement : MonoBehaviour
         Attack();
 
         anim.SetBool("Grounded", Grounded());
-        Debug.Log(Input.GetAxisRaw("TriggerRight"));
     }
 
     void Run()
     {
-        float verticalMovement = Input.GetAxisRaw("Vertical");
-        float horizontalMovement = Input.GetAxisRaw("Horizontal");
-        Vector3 moveForward = new Vector3(camera.transform.forward.x, 0, camera.transform.forward.z);
-        Vector3 moveRight = new Vector3(camera.transform.right.x, 0, camera.transform.right.z);
-        Vector3 lookRotation = moveForward * verticalMovement + moveRight * horizontalMovement;
+        Vector3 moveForward = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z);
+        Vector3 moveRight = new Vector3(cam.transform.right.x, 0, cam.transform.right.z);
+        Vector3 moveRotation = moveForward * Input.GetAxisRaw("Vertical") + moveRight * Input.GetAxisRaw("Horizontal");
         float sprint = (Input.GetAxisRaw("TriggerRight") != 0) ? sprintMultip : 1;
 
         anim.SetFloat("Speed", rb.velocity.magnitude);
 
-        if (lookRotation != Vector3.zero)
-            rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(lookRotation), Time.deltaTime * turnSpeed));
+        if (moveRotation != Vector3.zero)
+            rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(moveRotation), Time.deltaTime * turnSpeed));
 
         if (rb.velocity.magnitude < maxSpeed * sprint && !Walled())
-            rb.AddForce(((moveForward * verticalMovement) * Time.deltaTime * acceleration) + ((moveRight * horizontalMovement) * Time.deltaTime * acceleration), ForceMode.VelocityChange);
-
+            rb.AddForce(moveRotation * acceleration * Time.deltaTime, ForceMode.VelocityChange);
     }
 
     void Jump()

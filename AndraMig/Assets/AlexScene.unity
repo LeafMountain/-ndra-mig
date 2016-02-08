@@ -1332,8 +1332,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 563012252}
-  m_LocalRotation: {x: 0.23632486, y: 0, z: 0, w: 0.97167414}
-  m_LocalPosition: {x: 273, y: 35.37, z: 163.38}
+  m_LocalRotation: {x: -0.278555, y: -0.010950934, z: 0.00317636, w: -0.9603526}
+  m_LocalPosition: {x: 267.40106, y: 11.33181, z: 201.1329}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1351,9 +1351,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 2050070271}
   lookTarget: {fileID: 2050070271}
-  distanceToGround: 5
+  distanceToGround: 4
   distanceToTarget: 10
-  smooth: 5
+  smooth: 4
 --- !u!114 &563012259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,7 +1960,7 @@ MonoBehaviour:
   jumpForce: 15
   jumpDelay: 0.8
   jumpHeight: 5
-  camera: {fileID: 563012252}
+  cam: {fileID: 0}
   attackCol: {fileID: 2110707550}
 --- !u!136 &716126824
 CapsuleCollider:
@@ -4461,7 +4461,7 @@ MonoBehaviour:
   jumpForce: 15
   jumpDelay: 0.8
   jumpHeight: 5
-  camera: {fileID: 563012252}
+  cam: {fileID: 0}
   attackCol: {fileID: 697491351}
 --- !u!136 &1029481228
 CapsuleCollider:
@@ -6075,6 +6075,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 434eac5bb0ad0f24db64422b62456b82, type: 2}
+    - target: {fileID: 11430472, guid: 4b5b10a0ec8d4384398af9adc6f1e2ba, type: 2}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 563012252}
+    - target: {fileID: 5468430, guid: 4b5b10a0ec8d4384398af9adc6f1e2ba, type: 2}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b5b10a0ec8d4384398af9adc6f1e2ba, type: 2}
   m_IsPrefabParent: 0
