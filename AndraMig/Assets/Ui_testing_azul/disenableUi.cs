@@ -5,7 +5,6 @@ using System.Collections;
 public class disenableUi : MonoBehaviour
 {
     public Canvas canvas;
-    public Text healthText;
     public Text scoreText;
 
     public int point;
@@ -31,7 +30,6 @@ public class disenableUi : MonoBehaviour
         if (canvas.enabled)
         {
             scoreText.text = "score: " + point.ToString();
-            healthText.text = "health: ";
         }
     }
  

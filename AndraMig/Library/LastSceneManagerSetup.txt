@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/MainMenu_Axel.unity
+- path: Assets/Test_Field_2.unity
   isLoaded: 1
   isActive: 1
