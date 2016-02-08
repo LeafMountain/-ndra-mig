@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: "pasted__P\xE4ls"
-  m_Shader: {fileID: 4800000, guid: a450b4342756b334ca940362a18408f7, type: 3}
+  m_Shader: {fileID: 4800000, guid: 709411c076ec94df2a95a346ae4b7640, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2

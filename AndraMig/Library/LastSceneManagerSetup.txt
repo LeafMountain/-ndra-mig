@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/AlexScene.unity
+- path: Assets/Scenes/AxelTest.unity
   isLoaded: 1
   isActive: 1
