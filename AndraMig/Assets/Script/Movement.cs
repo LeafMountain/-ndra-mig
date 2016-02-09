@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public float jumpHeight = 5;
     public GameObject cam;
     public GameObject attackCol;
+    public AudioClip attack;
 
     private float verticalMovement;
     private float horizontalMovement;
@@ -20,6 +21,7 @@ public class Movement : MonoBehaviour
     private float jumpPower;                            //To keep track of how much jump power the player still has
     private Collider col;
     private Animator anim;
+    private AudioSource audi;
 
     private bool Grounded()
     {
@@ -54,6 +56,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
         anim = GetComponent<Animator>();
+        audi = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -101,12 +104,18 @@ public class Movement : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && anim.GetFloat("AttackCollider") < 0.5f)
         {
             if (!Grounded())
                 rb.AddForce((-rb.transform.up + rb.transform.forward) * acceleration, ForceMode.Impulse);
             anim.SetTrigger("Attack");
+            PlayAudio(attack);
         }
         attackCol.SetActive((anim.GetFloat("AttackCollider") >= 0.9f));
+    }
+
+    void PlayAudio(AudioClip clip)
+    {
+        AudioSource.PlayClipAtPoint(clip, transform.position, 2);
     }
 }
