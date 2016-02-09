@@ -54,6 +54,7 @@ ModelImporter:
     400044: //RootNode
     400046: Main_Root
     7400000: JumpAttack
+    7400002: JumpAttackGround
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -75,7 +76,159 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: JumpAttack
+      takeName: JumpAttack
+      firstFrame: 1
+      lastFrame: 1.1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Main_Root
+        weight: 1
+      - path: Main_Root/J_L_Hip
+        weight: 1
+      - path: Main_Root/J_L_Hip/J_L_Knee
+        weight: 1
+      - path: Main_Root/J_L_Hip/J_L_Knee/J_L_Ankle
+        weight: 1
+      - path: Main_Root/J_L_Hip/J_L_Knee/J_L_Ankle/J_L_Foot
+        weight: 1
+      - path: Main_Root/J_R_Hip
+        weight: 1
+      - path: Main_Root/J_R_Hip/J_R_Knee
+        weight: 1
+      - path: Main_Root/J_R_Hip/J_R_Knee/J_R_Ankle
+        weight: 1
+      - path: Main_Root/J_R_Hip/J_R_Knee/J_R_Ankle/J_R_Foot
+        weight: 1
+      - path: Main_Root/J_Spine1
+        weight: 1
+      - path: Main_Root/J_Spine1/J_L_Clav
+        weight: 1
+      - path: Main_Root/J_Spine1/J_L_Clav/J_L_Shoulder
+        weight: 1
+      - path: Main_Root/J_Spine1/J_L_Clav/J_L_Shoulder/J_L_Elbow
+        weight: 1
+      - path: Main_Root/J_Spine1/J_L_Clav/J_L_Shoulder/J_L_Elbow/J_L_Wrist
+        weight: 1
+      - path: Main_Root/J_Spine1/J_L_Clav/J_L_Shoulder/J_L_Elbow/J_L_Wrist/J_L_Hand
+        weight: 1
+      - path: Main_Root/J_Spine1/J_Neck
+        weight: 1
+      - path: Main_Root/J_Spine1/J_Neck/J_Head
+        weight: 1
+      - path: Main_Root/J_Spine1/J_Neck/J_Head/J_Head_End
+        weight: 1
+      - path: Main_Root/J_Spine1/J_R_Clav
+        weight: 1
+      - path: Main_Root/J_Spine1/J_R_Clav/J_R_Shoulder
+        weight: 1
+      - path: Main_Root/J_Spine1/J_R_Clav/J_R_Shoulder/J_R_Elbow
+        weight: 1
+      - path: Main_Root/J_Spine1/J_R_Clav/J_R_Shoulder/J_R_Elbow/J_R_Wrist
+        weight: 1
+      - path: Main_Root/J_Spine1/J_R_Clav/J_R_Shoulder/J_R_Elbow/J_R_Wrist/J_R_Hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: JumpAttackGround
+      takeName: JumpAttack
+      firstFrame: 1.1
+      lastFrame: 4
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Main_Root
+        weight: 1
+      - path: Main_Root/J_L_Hip
+        weight: 1
+      - path: Main_Root/J_L_Hip/J_L_Knee
+        weight: 1
+      - path: Main_Root/J_L_Hip/J_L_Knee/J_L_Ankle
+        weight: 1
+      - path: Main_Root/J_L_Hip/J_L_Knee/J_L_Ankle/J_L_Foot
+        weight: 1
+      - path: Main_Root/J_R_Hip
+        weight: 1
+      - path: Main_Root/J_R_Hip/J_R_Knee
+        weight: 1
+      - path: Main_Root/J_R_Hip/J_R_Knee/J_R_Ankle
+        weight: 1
+      - path: Main_Root/J_R_Hip/J_R_Knee/J_R_Ankle/J_R_Foot
+        weight: 1
+      - path: Main_Root/J_Spine1
+        weight: 1
+      - path: Main_Root/J_Spine1/J_L_Clav
+        weight: 1
+      - path: Main_Root/J_Spine1/J_L_Clav/J_L_Shoulder
+        weight: 1
+      - path: Main_Root/J_Spine1/J_L_Clav/J_L_Shoulder/J_L_Elbow
+        weight: 1
+      - path: Main_Root/J_Spine1/J_L_Clav/J_L_Shoulder/J_L_Elbow/J_L_Wrist
+        weight: 1
+      - path: Main_Root/J_Spine1/J_L_Clav/J_L_Shoulder/J_L_Elbow/J_L_Wrist/J_L_Hand
+        weight: 1
+      - path: Main_Root/J_Spine1/J_Neck
+        weight: 1
+      - path: Main_Root/J_Spine1/J_Neck/J_Head
+        weight: 1
+      - path: Main_Root/J_Spine1/J_Neck/J_Head/J_Head_End
+        weight: 1
+      - path: Main_Root/J_Spine1/J_R_Clav
+        weight: 1
+      - path: Main_Root/J_Spine1/J_R_Clav/J_R_Shoulder
+        weight: 1
+      - path: Main_Root/J_Spine1/J_R_Clav/J_R_Shoulder/J_R_Elbow
+        weight: 1
+      - path: Main_Root/J_Spine1/J_R_Clav/J_R_Shoulder/J_R_Elbow/J_R_Wrist
+        weight: 1
+      - path: Main_Root/J_Spine1/J_R_Clav/J_R_Shoulder/J_R_Elbow/J_R_Wrist/J_R_Hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
