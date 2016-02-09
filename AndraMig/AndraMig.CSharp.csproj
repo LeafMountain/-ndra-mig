@@ -71,17 +71,31 @@
   <ItemGroup>
     <Compile Include="Assets\Script\AnimIK.cs" />
     <Compile Include="Assets\Script\Attack.cs" />
+    <Compile Include="Assets\Script\AudioManager.cs" />
     <Compile Include="Assets\Script\CameraMovement.cs" />
     <Compile Include="Assets\Script\CameraTrack.cs" />
+    <Compile Include="Assets\Script\ControllerUI.cs" />
+    <Compile Include="Assets\Script\DeathTrigger.cs" />
+    <Compile Include="Assets\Script\GameStateManager.cs" />
     <Compile Include="Assets\Script\Health.cs" />
+    <Compile Include="Assets\Script\Interfaces\IStateBase.cs" />
+    <Compile Include="Assets\Script\MenuCommands.cs" />
     <Compile Include="Assets\Script\Movement.cs" />
+    <Compile Include="Assets\Script\MushroomJump.cs" />
     <Compile Include="Assets\Script\Point.cs" />
+    <Compile Include="Assets\Script\States\BeginState.cs" />
+    <Compile Include="Assets\Script\States\MainMenuState.cs" />
+    <Compile Include="Assets\Script\States\PauseState.cs" />
+    <Compile Include="Assets\Script\States\PlayState.cs" />
     <Compile Include="Assets\Script\Water.cs" />
     <Compile Include="Assets\Script\Water_ripples.cs" />
+    <Compile Include="Assets\Skybox(Unity_Assets)\Scripts\FSPlayer.cs" />
     <Compile Include="Assets\Ui_testing_azul\disenableUi.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Fur.shader" />
+    <None Include="Assets\Prefabs\AxelsPrefabs\Resources\Text\AreYouSure\Quitting.txt" />
+    <None Include="Assets\Prefabs\AxelsPrefabs\Resources\Text\AreYouSure\ReturntoMainMenu.txt" />
+    <None Include="Assets\Skybox(Unity_Assets)\Readme\Readme.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />

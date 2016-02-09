@@ -9,21 +9,6 @@ public class CameraMovement : MonoBehaviour
     public float distanceToTarget;      //How far away from the target the camera should be
     public float smooth = 5;            //How smooth the camera follows (Higher = faster)
 
-    private float timer;
-
-    void Update()
-    {
-        if (timer > 0)
-            timer -= Time.deltaTime;
-
-        if (lookTarget == null)
-            lookTarget = cameraTarget;
-
-        //Point the camera towards the target (Player)
-        //transform.LookAt(lookTarget.GetComponent<Collider>().bounds.center);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookTarget.transform.position - transform.position), Time.deltaTime * smooth);
-    }
-
     void LateUpdate()
     {
         //How do we want to move the camera?
@@ -33,32 +18,42 @@ public class CameraMovement : MonoBehaviour
         Vector3 distToGr = new Vector3(0, distanceToGround, 0);
         float distance = Vector3.Distance(transform.position, lookTarget.transform.position);
 
+        //Point the camera towards the target (Player)
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(((lookTarget.transform.position + Vector3.up) - transform.position)), Time.deltaTime * smooth);
+
         //Right joystick movement
         float hRight = Input.GetAxisRaw("HorizontalRight");
         float vRight = Input.GetAxisRaw("VerticalRight");
 
         //Moves camera by using right joystick
-        if (hRight != 0)
-            transform.position = Vector3.Lerp(transform.position, transform.position + transform.right * hRight, Time.deltaTime * smooth * 5);
+        if (hRight != 0 || vRight != 0)
+            transform.position = Vector3.Lerp(transform.position, transform.position + transform.right * hRight + transform.up * vRight, Time.deltaTime * smooth * 5);
         //Press Fire1 to put camera behind target
-        if (Input.GetButton("Fire2"))
+        if (Input.GetAxisRaw("TriggerLeft") != 1)
             transform.position = Vector3.Lerp(transform.position, behind, Time.deltaTime * smooth);
         //Move with target
+
         else
         {
-            if (Vector3.Distance(transform.position, cameraTarget.transform.position) > distanceToTarget)
-                timer = 0.5f;
+            /*
             if (Vector3.Distance(transform.position, cameraTarget.transform.position) > distanceToTarget)
                 transform.position = Vector3.MoveTowards(transform.position, cameraTarget.transform.position + distToGr, Time.deltaTime * smooth * (distance / 10));
-            //transform.position = Vector3.Lerp(transform.position, closer, Time.deltaTime * smooth);
             else if (Vector3.Distance(transform.position, cameraTarget.transform.position) < distanceToTarget * 0.8f)
-                transform.position = Vector3.Lerp(transform.position, away, Time.deltaTime * smooth * 1.2f);
+                transform.position = Vector3.Lerp(transform.position, away, Time.deltaTime * smooth * 1.2f);  */
+
+            if (Vector3.Distance(transform.position, cameraTarget.transform.position) > distanceToTarget)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, cameraTarget.transform.position + distToGr, Time.deltaTime * smooth * (distance / 10));
+            }
         }
     }
 
     public void ChangeTarget(GameObject target, GameObject look)
     {
         cameraTarget = target;
-        lookTarget = look;
+        if (look == null)
+            lookTarget = target;
+        else
+            lookTarget = look;
     }
 }
