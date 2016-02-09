@@ -1,12 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-<<<<<<< HEAD
-- path: Assets/Test_Field_2.unity
-=======
-- path: Assets/Scenes/AxelTest.unity
->>>>>>> refs/remotes/origin/master
-=======
 - path: Assets/AlexScene.unity
->>>>>>> b62a335f1108d2dbe815fe7533f1a5c4c4d60c99
   isLoaded: 1
   isActive: 1

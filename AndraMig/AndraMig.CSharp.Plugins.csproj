@@ -105,6 +105,7 @@
   <ItemGroup>
     <None Include="Assets\Prefabs\AxelsPrefabs\Resources\Text\AreYouSure\Quitting.txt" />
     <None Include="Assets\Prefabs\AxelsPrefabs\Resources\Text\AreYouSure\ReturntoMainMenu.txt" />
+    <None Include="Assets\Skybox(Unity_Assets)\Readme\Readme.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />

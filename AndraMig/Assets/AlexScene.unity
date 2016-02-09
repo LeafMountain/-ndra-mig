@@ -1353,7 +1353,7 @@ MonoBehaviour:
   lookTarget: {fileID: 2050070271}
   distanceToGround: 4
   distanceToTarget: 10
-  smooth: 4
+  smooth: 5
 --- !u!114 &563012259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6056,33 +6056,9 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11430472, guid: 4b5b10a0ec8d4384398af9adc6f1e2ba, type: 2}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 563012252}
-    - target: {fileID: 174020, guid: 4b5b10a0ec8d4384398af9adc6f1e2ba, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 499960, guid: 4b5b10a0ec8d4384398af9adc6f1e2ba, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 499960, guid: 4b5b10a0ec8d4384398af9adc6f1e2ba, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.0925
-      objectReference: {fileID: 0}
-    - target: {fileID: 13730018, guid: 4b5b10a0ec8d4384398af9adc6f1e2ba, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 434eac5bb0ad0f24db64422b62456b82, type: 2}
-    - target: {fileID: 11430472, guid: 4b5b10a0ec8d4384398af9adc6f1e2ba, type: 2}
       propertyPath: cam
       value: 
       objectReference: {fileID: 563012252}
-    - target: {fileID: 5468430, guid: 4b5b10a0ec8d4384398af9adc6f1e2ba, type: 2}
-      propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b5b10a0ec8d4384398af9adc6f1e2ba, type: 2}
   m_IsPrefabParent: 0
