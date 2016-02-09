@@ -71,13 +71,14 @@ public class Movement : MonoBehaviour
         Vector3 moveRight = new Vector3(cam.transform.right.x, 0, cam.transform.right.z);
         Vector3 moveRotation = moveForward * Input.GetAxisRaw("Vertical") + moveRight * Input.GetAxisRaw("Horizontal");
         float sprint = (Input.GetAxisRaw("TriggerRight") != 1) ? sprintMultip : 1;
+        float horizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
 
-        anim.SetFloat("Speed", new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude);
+        anim.SetFloat("Speed", horizontalVelocity);
 
         if (moveRotation != Vector3.zero)
             rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(moveRotation), Time.deltaTime * turnSpeed));
 
-        if (rb.velocity.magnitude < maxSpeed * sprint && !Walled())
+        if (horizontalVelocity < maxSpeed * sprint && !Walled())
             rb.AddForce(moveRotation * acceleration * Time.deltaTime, ForceMode.VelocityChange);
 
     }
