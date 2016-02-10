@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     public GameObject cam;
     public GameObject attackCol;
     public AudioClip attack;
+    public AudioClip[] footstep;
 
     private float verticalMovement;
     private float horizontalMovement;
@@ -38,19 +39,6 @@ public class Movement : MonoBehaviour
         return (Physics.Raycast(top, col.bounds.size.z) || Physics.Raycast(mid, col.bounds.size.z) || Physics.Raycast(low, col.bounds.size.z)) ? true : false;
     }
 
-    private bool LedgeGrab()
-    {
-        Ray top = new Ray(col.bounds.center + Vector3.up, transform.forward);
-        Ray mid = new Ray(col.bounds.center, transform.forward);
-        Ray low = new Ray(col.bounds.center + Vector3.down, transform.forward);
-
-        Debug.DrawRay(top.origin, top.direction * col.bounds.size.z, Color.blue);
-        Debug.DrawRay(mid.origin, mid.direction * col.bounds.size.z, Color.blue);
-        Debug.DrawRay(low.origin, low.direction * col.bounds.size.z, Color.blue);
-
-        return (!Physics.Raycast(top, col.bounds.size.z) && (Physics.Raycast(mid, col.bounds.size.z) || Physics.Raycast(low, col.bounds.size.z))) ? true : false;
-    }
-
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -72,9 +60,10 @@ public class Movement : MonoBehaviour
     {
         Vector3 moveForward = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z);
         Vector3 moveRight = new Vector3(cam.transform.right.x, 0, cam.transform.right.z);
-        Vector3 moveRotation = moveForward * Input.GetAxisRaw("Vertical") + moveRight * Input.GetAxisRaw("Horizontal");
         float sprint = (Input.GetAxisRaw("TriggerRight") != 1) ? sprintMultip : 1;
         float horizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
+        float inAirMultip = (Grounded()) ? 1 : 0.2f;
+        Vector3 moveRotation = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z).normalized * Input.GetAxisRaw("Vertical") + new Vector3(cam.transform.right.x, 0, cam.transform.right.z).normalized * Input.GetAxisRaw("Horizontal") * inAirMultip;
 
         anim.SetFloat("Speed", horizontalVelocity);
 
@@ -109,13 +98,18 @@ public class Movement : MonoBehaviour
             if (!Grounded())
                 rb.AddForce((-rb.transform.up + rb.transform.forward) * acceleration, ForceMode.Impulse);
             anim.SetTrigger("Attack");
-            PlayAudio(attack);
+            PlayAudio(attack, 1f);
         }
         attackCol.SetActive((anim.GetFloat("AttackCollider") >= 0.9f));
     }
 
-    void PlayAudio(AudioClip clip)
+    void Footstep()
     {
-        AudioSource.PlayClipAtPoint(clip, transform.position, 2);
+        PlayAudio(footstep[Random.Range(0, footstep.Length)], 0.1f);
+    }
+
+    void PlayAudio(AudioClip clip, float volume)
+    {
+        AudioSource.PlayClipAtPoint(clip, transform.position, volume);
     }
 }
