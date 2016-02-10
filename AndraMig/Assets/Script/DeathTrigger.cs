@@ -3,13 +3,12 @@ using System.Collections;
 
 public class DeathTrigger : MonoBehaviour
 {
-    GameObject spawnPoint;
+    public GameObject currentSpawnPoint;
     GameObject buddy;
 
     public void Start ()
     {
         buddy = GameObject.FindGameObjectWithTag("Player");
-        spawnPoint = GameObject.Find("BuddySpawnPoint");
     }
 
 	
@@ -22,8 +21,9 @@ public class DeathTrigger : MonoBehaviour
         }
     }
 
-    public void RespawnBuddy ()
+   public void RespawnBuddy ()
     {
-        buddy.transform.position = spawnPoint.transform.position;
+        buddy.transform.position = currentSpawnPoint.transform.position;
     }
+
 }

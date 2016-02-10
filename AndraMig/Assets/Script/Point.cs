@@ -25,6 +25,7 @@ public class Point : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
+            uiScript.point++;
             uiScript.SendMessage("TurnItOn");
             uiScript.Invoke("ShutItOff", 5);
         }
