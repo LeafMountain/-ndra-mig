@@ -25,7 +25,7 @@ GameObject:
   - 4: {fileID: 472146}
   - 33: {fileID: 3300242}
   - 23: {fileID: 2378218}
-  - 65: {fileID: 6584076}
+  - 64: {fileID: 6430812}
   m_Layer: 0
   m_Name: mod_vill_house_b
   m_TagString: Untagged
@@ -39,9 +39,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180164}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: -154.64023, y: 33.48, z: -290.94485}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.8069302, z: 0, w: -0.5906469}
+  m_LocalPosition: {x: -0.6919255, y: 0.00064015953, z: 0.59819853}
+  m_LocalScale: {x: 0.008539931, y: 0.008539929, z: 0.008539932}
   m_Children:
   - {fileID: 472146}
   m_Father: {fileID: 0}
@@ -91,8 +91,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190936}
   m_Mesh: {fileID: 4300000, guid: 1523a65c47874f8479e4ae5b16251f10, type: 3}
---- !u!65 &6584076
-BoxCollider:
+--- !u!64 &6430812
+MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -101,8 +101,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.11632161, y: 0.14007775, z: 0.12314541}
-  m_Center: {x: -0.00000011920929, y: 0, z: -0.00000023841858}
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 1523a65c47874f8479e4ae5b16251f10, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
