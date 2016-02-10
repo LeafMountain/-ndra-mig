@@ -10,10 +10,12 @@ public class Movement : MonoBehaviour
     public float jumpForce = 15;                        //The force applied on the y axis when trying to jump
     public float jumpDelay = 0.8f;                      //Can't jump for jumpDelay amount of time
     public float jumpHeight = 5;
+    public float gravity;
     public GameObject cam;
+    public GameObject weapon;
     public GameObject attackCol;
-    public AudioClip attack;
-    public AudioClip[] footstep;
+    public AudioClip[] attackSound;
+    public AudioClip[] footstepSound;
 
     private float verticalMovement;
     private float horizontalMovement;
@@ -26,8 +28,13 @@ public class Movement : MonoBehaviour
 
     private bool Grounded()
     {
-        Ray distToGround = new Ray(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), Vector3.down);
-        return (Physics.Raycast(distToGround, 0.3f)) ? true : false;
+        Ray distToGround = new Ray(new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z), Vector3.down);
+        Ray distToGroundFront = new Ray(new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.2f), Vector3.down);
+
+        Debug.DrawRay(distToGround.origin, distToGround.direction * 0.4f, Color.blue);
+        Debug.DrawRay(distToGroundFront.origin, distToGroundFront.direction * 0.5f, Color.red);
+
+        return (Physics.Raycast(distToGround, 0.4f) || Physics.Raycast(distToGroundFront, 0.5f) ? true : false);
     }
 
     private bool Walled()
@@ -54,6 +61,10 @@ public class Movement : MonoBehaviour
         Attack();
 
         anim.SetBool("Grounded", Grounded());
+
+        //Gravity
+        if (!Grounded())
+            rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
     }
 
     void Run()
@@ -93,19 +104,31 @@ public class Movement : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetButtonDown("Fire1") && anim.GetFloat("AttackCollider") < 0.5f)
+        if (Input.GetButtonDown("Fire1"))
         {
             if (!Grounded())
                 rb.AddForce((-rb.transform.up + rb.transform.forward) * acceleration, ForceMode.Impulse);
             anim.SetTrigger("Attack");
-            PlayAudio(attack, 1f);
         }
         attackCol.SetActive((anim.GetFloat("AttackCollider") >= 0.9f));
     }
 
     void Footstep()
     {
-        PlayAudio(footstep[Random.Range(0, footstep.Length)], 0.1f);
+        PlayAudio(footstepSound[Random.Range(0, footstepSound.Length)], 0.1f);
+    }
+
+    void AttackSound()
+    {
+        PlayAudio(attackSound[Random.Range(0, attackSound.Length)], 1);
+    }
+
+    void WeaponEnabled(int enabled)
+    {
+        if (enabled == 1)
+            weapon.SetActive(true);
+        else
+            weapon.SetActive(false);
     }
 
     void PlayAudio(AudioClip clip, float volume)

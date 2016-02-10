@@ -105,7 +105,7 @@ ModelImporter:
           serializedVersion: 2
           curve:
           - time: 0
-            value: 0
+            value: 0.5
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -120,14 +120,21 @@ ModelImporter:
             outSlope: 0
             tangentMode: 0
           - time: 1
-            value: 0
+            value: 0.5
             inSlope: 0
             outSlope: 0
             tangentMode: 0
           preInfinity: 3
           postInfinity: 3
           rotationOrder: 0
-      events: []
+      events:
+      - time: 0.27160493
+        functionName: AttackSound
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -230,7 +237,14 @@ ModelImporter:
           preInfinity: 3
           postInfinity: 3
           rotationOrder: 0
-      events: []
+      events:
+      - time: 0.60185176
+        functionName: AttackSound
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

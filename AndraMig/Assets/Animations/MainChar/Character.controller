@@ -13,31 +13,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Grounded
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Jump
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Attack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: AttackCollider
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -48,7 +48,7 @@ AnimatorController:
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 0
-    m_IKPass: 1
+    m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
 --- !u!206 &20638800
@@ -113,18 +113,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Attack
     m_EventTreshold: 0
-  - m_ConditionMode: 4
-    m_ConditionEvent: AttackCollider
-    m_EventTreshold: 0.98
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110269584}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.041794777
+  m_TransitionDuration: 0.40766662
   m_TransitionOffset: 0
-  m_ExitTime: 0.94595814
+  m_ExitTime: 0.14769235
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -142,7 +139,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Speed
-    m_EventTreshold: 5.5
+    m_EventTreshold: 6.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110282858}
   m_Solo: 0
@@ -166,7 +163,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: AttackCollider
-    m_EventTreshold: 0.1
+    m_EventTreshold: 5.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110244744}
   m_Solo: 0
@@ -212,22 +209,22 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
+  - m_ConditionMode: 3
+    m_ConditionEvent: AttackCollider
+    m_EventTreshold: 0.4
   - m_ConditionMode: 1
     m_ConditionEvent: Attack
     m_EventTreshold: 0
-  - m_ConditionMode: 4
-    m_ConditionEvent: AttackCollider
-    m_EventTreshold: 0.98
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110256774}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.12764102
+  m_TransitionDuration: 0.43558988
   m_TransitionOffset: 0
-  m_ExitTime: 0.8610259
-  m_HasExitTime: 1
+  m_ExitTime: 0.097948775
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -289,7 +286,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: AttackCollider
-    m_EventTreshold: 0.1
+    m_EventTreshold: 5.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110244744}
   m_Solo: 0
@@ -460,7 +457,7 @@ AnimatorStateTransition:
     m_EventTreshold: 5.5
   - m_ConditionMode: 3
     m_ConditionEvent: Speed
-    m_EventTreshold: 5.5
+    m_EventTreshold: 7.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110250272}
   m_Solo: 0

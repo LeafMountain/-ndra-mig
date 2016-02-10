@@ -12,8 +12,6 @@ public class CameraMovement : MonoBehaviour
     void LateUpdate()
     {
         //How do we want to move the camera?
-        Vector3 away = new Vector3(transform.position.x - transform.forward.x, cameraTarget.transform.position.y + distanceToGround, transform.position.z - transform.forward.z);
-        Vector3 closer = new Vector3(transform.position.x + transform.forward.x, cameraTarget.transform.position.y + distanceToGround, transform.position.z + transform.forward.z);
         Vector3 behind = new Vector3(cameraTarget.transform.position.x - cameraTarget.transform.forward.x * distanceToTarget, cameraTarget.transform.position.y + distanceToGround, cameraTarget.transform.position.z - cameraTarget.transform.forward.z * distanceToTarget);
         Vector3 distToGr = new Vector3(0, distanceToGround, 0);
         float distance = Vector3.Distance(transform.position, lookTarget.transform.position);
@@ -25,26 +23,19 @@ public class CameraMovement : MonoBehaviour
         float hRight = Input.GetAxisRaw("HorizontalRight");
         float vRight = Input.GetAxisRaw("VerticalRight");
 
+        float cameraHeight = (transform.position.y > cameraTarget.transform.position.y + 1) ? 1 : 0.01f;
+
         //Moves camera by using right joystick
         if (hRight != 0 || vRight != 0)
-            transform.position = Vector3.Lerp(transform.position, transform.position + transform.right * hRight + transform.up * vRight, Time.deltaTime * smooth * 5);
+            transform.position = Vector3.Lerp(transform.position, transform.position + transform.right * hRight + transform.up * vRight * cameraHeight, Time.deltaTime * smooth * 2);
         //Press Fire1 to put camera behind target
         if (Input.GetAxisRaw("TriggerLeft") != 1)
             transform.position = Vector3.Lerp(transform.position, behind, Time.deltaTime * smooth);
         //Move with target
 
-        else
+        else if (Vector3.Distance(transform.position, cameraTarget.transform.position) > distanceToTarget)
         {
-            /*
-            if (Vector3.Distance(transform.position, cameraTarget.transform.position) > distanceToTarget)
-                transform.position = Vector3.MoveTowards(transform.position, cameraTarget.transform.position + distToGr, Time.deltaTime * smooth * (distance / 10));
-            else if (Vector3.Distance(transform.position, cameraTarget.transform.position) < distanceToTarget * 0.8f)
-                transform.position = Vector3.Lerp(transform.position, away, Time.deltaTime * smooth * 1.2f);  */
-
-            if (Vector3.Distance(transform.position, cameraTarget.transform.position) > distanceToTarget)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, cameraTarget.transform.position + distToGr, Time.deltaTime * smooth * (distance / 10));
-            }
+            transform.position = Vector3.MoveTowards(transform.position, cameraTarget.transform.position + distToGr, Time.deltaTime * smooth * (distance / 10));
         }
     }
 

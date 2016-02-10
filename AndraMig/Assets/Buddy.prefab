@@ -147,6 +147,7 @@ GameObject:
   - 54: {fileID: 5468430}
   - 136: {fileID: 13670600}
   - 114: {fileID: 11430472}
+  - 81: {fileID: 8128346}
   m_Layer: 8
   m_Name: Buddy
   m_TagString: Player
@@ -453,7 +454,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432114}
   m_Layer: 0
-  m_Name: group2
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -594,8 +595,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141840}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 267.70657, y: 0, z: 216.69853}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: -2.5, y: 66.73, z: 35.8}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 432114}
@@ -891,6 +892,13 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!81 &8128346
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141840}
+  m_Enabled: 1
 --- !u!95 &9540286
 Animator:
   serializedVersion: 3
@@ -919,6 +927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4cf60eb4e4d42549a66caf56616d4e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageStrenght: 0
+  hitSound: []
+  hitSoundEnvironment: []
 --- !u!114 &11430472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -931,15 +942,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 40
-  maxSpeed: 5
+  maxSpeed: 6
   turnSpeed: 10
   sprintMultip: 2
   jumpForce: 15
   jumpDelay: 0.8
   jumpHeight: 5
+  gravity: 10
   cam: {fileID: 0}
+  weapon: {fileID: 195756}
   attackCol: {fileID: 174020}
-  attack: {fileID: 8300000, guid: f49f9e5ad0995c0459f089024823a766, type: 3}
+  attackSound:
+  - {fileID: 8300000, guid: f49f9e5ad0995c0459f089024823a766, type: 3}
+  - {fileID: 8300000, guid: 29ad84bebc914aa42a3b1ae07d8ebf3c, type: 3}
+  - {fileID: 8300000, guid: 9b5a83942015ad5478a3606cfe2851da, type: 3}
+  - {fileID: 8300000, guid: 110102c4502c39d4fb23c2bffd0f9fd3, type: 3}
+  footstepSound:
+  - {fileID: 8300000, guid: 533384527af446b47badeb2bae40c286, type: 3}
+  - {fileID: 8300000, guid: 6701facd8a8fdb740a1ec810da6651a1, type: 3}
+  - {fileID: 8300000, guid: fa3fd07778d0e3940b67f0e030efcc8a, type: 3}
+  - {fileID: 8300000, guid: 0ef554794380eb84b8e76c979747c29b, type: 3}
+  - {fileID: 8300000, guid: 88c3dd364e611c747b5db160800aaba7, type: 3}
+  - {fileID: 8300000, guid: 3d0ef7fda9a7b0b4aa0405309c0ed114, type: 3}
+  - {fileID: 8300000, guid: 164faa786977a2145b35c1f9212e0947, type: 3}
 --- !u!119 &11991798
 Projector:
   m_ObjectHideFlags: 1
