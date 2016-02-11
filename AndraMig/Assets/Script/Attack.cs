@@ -7,6 +7,12 @@ public class Attack : MonoBehaviour
     public AudioClip[] hitSound;
     public AudioClip[] hitSoundEnvironment;
 
+    public disenableUi dUI;
+
+    void Awake ()
+    {
+        dUI = GameObject.Find("Buddy").GetComponent<disenableUi>();
+    }
 
     void OnTriggerEnter(Collider col)
     {
@@ -15,11 +21,17 @@ public class Attack : MonoBehaviour
             if (col.GetComponent<Health>())
                 col.GetComponent<Health>().Damaged(damageStrenght);
             col.GetComponent<Rigidbody>().AddForce((transform.forward + transform.up) * 10, ForceMode.Impulse);
-            PlayAudio(hitSound[Random.Range(0, hitSound.Length)], col.transform.position);
+            //PlayAudio(hitSound[Random.Range(0, hitSound.Length)], col.transform.position);
         }
         else
         {
-            PlayAudio(hitSoundEnvironment[Random.Range(0, hitSoundEnvironment.Length)], col.transform.position);
+            //PlayAudio(hitSoundEnvironment[Random.Range(0, hitSoundEnvironment.Length)], col.transform.position);
+        }
+
+        if (col.gameObject.tag == "Player")
+        {
+            dUI.CountBuddyLives();
+            dUI.buddyHealth--;
         }
     }
 

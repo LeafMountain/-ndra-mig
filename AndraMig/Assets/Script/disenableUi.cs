@@ -16,10 +16,7 @@ public class disenableUi : MonoBehaviour
     {
         canvas.enabled = false;
         livesImg = GameObject.Find("Lives").GetComponentsInChildren<Image>();
-        foreach (Image liv in livesImg)
-        {
-            buddyHealth++;
-        }
+        CountBuddyLives();
     }
 
     public void TurnItOn ()
@@ -39,11 +36,20 @@ public class disenableUi : MonoBehaviour
         {
             scoreText.text = "score: " + point.ToString();
             livesText.text = "lives: " + livesImg;
+            
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             canvas.enabled = !canvas.enabled;
+        }
+    }
+
+    public void CountBuddyLives ()
+    {
+        foreach (Image liv in livesImg)
+        {
+            buddyHealth++;
         }
     }
 }

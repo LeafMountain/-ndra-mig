@@ -8,9 +8,11 @@ public class Health : MonoBehaviour {
     private Renderer rend;
     private Color originalColor;
 
+    public disenableUi dUI;
+
     void Awake()
     {
-        rend = GetComponent<Renderer>();
+        rend = GetComponentInChildren<Renderer>();
         originalColor = rend.material.color;
     }
 
@@ -28,4 +30,5 @@ public class Health : MonoBehaviour {
     {
         rend.material.color = originalColor;
     }
+    
 }

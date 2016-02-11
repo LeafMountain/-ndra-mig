@@ -26,7 +26,7 @@ namespace Assets.Script.States
 		}
 		public void StateUpdate()
 		{
-			if(Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.Joystick1Button7))
+			if(Input.GetKeyUp(KeyCode.Escape) /*|| Input.GetKeyUp(KeyCode.Joystick1Button7)*/)
 			{
 				gameStateManager.SwitchState(new PauseState(gameStateManager));
 				canvas.transform.GetChild(3).transform.gameObject.SetActive(false);
