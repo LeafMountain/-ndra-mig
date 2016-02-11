@@ -5,6 +5,11 @@ public class Point : MonoBehaviour {
 
     public disenableUi uiScript;
 
+    public void Start ()
+    {
+        uiScript = GameObject.Find("Buddy").GetComponent<disenableUi>();
+    }
+
 	void Update()
 	{
 		transform.rotation = transform.rotation * Quaternion.Euler(Vector3.up);

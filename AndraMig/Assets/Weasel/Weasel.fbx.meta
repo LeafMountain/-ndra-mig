@@ -1,0 +1,261 @@
+fileFormatVersion: 2
+guid: 51624bc227365514aaab46dc6df23530
+timeCreated: 1455113984
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: face
+    100002: head
+    100004: leftArm1
+    100006: leftArm2
+    100008: leftCalf
+    100010: leftFingers
+    100012: leftFingerTips
+    100014: leftFoot
+    100016: leftHand
+    100018: LeftThigh
+    100020: LeftToes
+    100022: neck
+    100024: pCylinder1
+    100026: pCylinder4
+    100028: pCylinder5
+    100030: pSphere1
+    100032: pSphere3
+    100034: pSphere4
+    100036: pSphere5
+    100038: rightArm1
+    100040: rightArm2
+    100042: rightCalf
+    100044: rightFingers
+    100046: RightFingerTips
+    100048: rightFoot
+    100050: rightHand
+    100052: rightThigh
+    100054: rightToes
+    100056: root
+    100058: spine
+    100060: tail1
+    100062: tail2
+    100064: tail3
+    100066: transform3
+    100068: transform4
+    100070: transform5
+    100072: transform6
+    100074: transform7
+    100076: //RootNode
+    400000: face
+    400002: head
+    400004: leftArm1
+    400006: leftArm2
+    400008: leftCalf
+    400010: leftFingers
+    400012: leftFingerTips
+    400014: leftFoot
+    400016: leftHand
+    400018: LeftThigh
+    400020: LeftToes
+    400022: neck
+    400024: pCylinder1
+    400026: pCylinder4
+    400028: pCylinder5
+    400030: pSphere1
+    400032: pSphere3
+    400034: pSphere4
+    400036: pSphere5
+    400038: rightArm1
+    400040: rightArm2
+    400042: rightCalf
+    400044: rightFingers
+    400046: RightFingerTips
+    400048: rightFoot
+    400050: rightHand
+    400052: rightThigh
+    400054: rightToes
+    400056: root
+    400058: spine
+    400060: tail1
+    400062: tail2
+    400064: tail3
+    400066: transform3
+    400068: transform4
+    400070: transform5
+    400072: transform6
+    400074: transform7
+    400076: //RootNode
+    4300000: pCylinder4
+    4300002: pCylinder5
+    7400000: vesslaAnim
+    9500000: //RootNode
+    13700000: pCylinder4
+    13700002: pCylinder5
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: vesslaAnim
+      takeName: vesslaAnim
+      firstFrame: 0
+      lastFrame: 420
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform7
+        weight: 1
+      - path: pCylinder4
+        weight: 1
+      - path: pCylinder5
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform6
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform4
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform3
+        weight: 1
+      - path: pSphere5
+        weight: 1
+      - path: pSphere5/transform5
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/LeftThigh
+        weight: 1
+      - path: root/LeftThigh/leftCalf
+        weight: 1
+      - path: root/LeftThigh/leftCalf/leftFoot
+        weight: 1
+      - path: root/LeftThigh/leftCalf/leftFoot/LeftToes
+        weight: 1
+      - path: root/rightThigh
+        weight: 1
+      - path: root/rightThigh/rightCalf
+        weight: 1
+      - path: root/rightThigh/rightCalf/rightFoot
+        weight: 1
+      - path: root/rightThigh/rightCalf/rightFoot/rightToes
+        weight: 1
+      - path: root/spine
+        weight: 1
+      - path: root/spine/leftArm1
+        weight: 1
+      - path: root/spine/leftArm1/leftArm2
+        weight: 1
+      - path: root/spine/leftArm1/leftArm2/leftHand
+        weight: 1
+      - path: root/spine/leftArm1/leftArm2/leftHand/leftFingers
+        weight: 1
+      - path: root/spine/leftArm1/leftArm2/leftHand/leftFingers/leftFingerTips
+        weight: 1
+      - path: root/spine/neck
+        weight: 1
+      - path: root/spine/neck/head
+        weight: 1
+      - path: root/spine/neck/head/face
+        weight: 1
+      - path: root/spine/rightArm1
+        weight: 1
+      - path: root/spine/rightArm1/rightArm2
+        weight: 1
+      - path: root/spine/rightArm1/rightArm2/rightHand
+        weight: 1
+      - path: root/spine/rightArm1/rightArm2/rightHand/rightFingers
+        weight: 1
+      - path: root/spine/rightArm1/rightArm2/rightHand/rightFingers/RightFingerTips
+        weight: 1
+      - path: root/tail1
+        weight: 1
+      - path: root/tail1/tail2
+        weight: 1
+      - path: root/tail1/tail2/tail3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
