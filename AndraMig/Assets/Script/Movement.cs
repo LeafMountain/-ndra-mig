@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
     public GameObject currentNPC;
     public disenableUi dUI;
 
-    void Start ()
+    void Start()
     {
         dUI = GetComponent<disenableUi>();
     }
@@ -86,14 +86,14 @@ public class Movement : MonoBehaviour
             rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
         }
 
-        
+
     }
 
     void Run()
     {
         Vector3 moveForward = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z);
         Vector3 moveRight = new Vector3(cam.transform.right.x, 0, cam.transform.right.z);
-        float sprint = (Input.GetAxisRaw("TriggerRight") != 1) ? sprintMultip : 1;
+        float sprint = (Input.GetButton("TriggerRight")) ? sprintMultip : 1;
         float horizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
         float inAirMultip = (Grounded()) ? 1 : 0.2f;
         Vector3 moveRotation = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z).normalized * Input.GetAxisRaw("Vertical") + new Vector3(cam.transform.right.x, 0, cam.transform.right.z).normalized * Input.GetAxisRaw("Horizontal") * inAirMultip;
@@ -158,7 +158,7 @@ public class Movement : MonoBehaviour
         AudioSource.PlayClipAtPoint(clip, transform.position, volume);
     }
 
-    void Conversate ()
+    void Conversate()
     {
         dUI.canvas.enabled = true;
         if (Input.GetKeyDown(KeyCode.C))

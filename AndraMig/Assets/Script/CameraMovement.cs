@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour
         if (hRight != 0 || vRight != 0)
             transform.position = Vector3.Lerp(transform.position, transform.position + transform.right * hRight + transform.up * vRight * cameraHeight, Time.deltaTime * smooth * 2);
         //Press Fire1 to put camera behind target
-        if (Input.GetAxisRaw("TriggerLeft") != 1)
+        if (Input.GetButton("TriggerLeft"))
             transform.position = Vector3.Lerp(transform.position, behind, Time.deltaTime * smooth);
         //Move with target
 
