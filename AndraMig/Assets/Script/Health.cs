@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Health : MonoBehaviour {
 
-    public float health;
+    public int health;
 
     private Renderer rend;
     private Color originalColor;
