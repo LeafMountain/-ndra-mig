@@ -7,12 +7,16 @@ public class disenableUi : MonoBehaviour
     public Canvas canvas;
     public Text scoreText;
     public Text livesText;
+    public Image[] livesImg;
 
     public int point;
+    public int buddyHealth;
    
     public void Start ()
     {
         canvas.enabled = false;
+        livesImg = GameObject.Find("Lives").GetComponentsInChildren<Image>();
+        CountBuddyLives();
     }
 
     public void TurnItOn ()
@@ -25,15 +29,27 @@ public class disenableUi : MonoBehaviour
         canvas.enabled = false;
     }
 
-    public void Update ()
+    public void Update()
     {
+        Debug.Log(buddyHealth.ToString());
         if (canvas.enabled)
         {
             scoreText.text = "score: " + point.ToString();
-            livesText.text = "lives: ";
+            livesText.text = "lives: " + livesImg;
+            
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            canvas.enabled = !canvas.enabled;
         }
     }
- 
 
-	
+    public void CountBuddyLives ()
+    {
+        foreach (Image liv in livesImg)
+        {
+            buddyHealth++;
+        }
+    }
 }

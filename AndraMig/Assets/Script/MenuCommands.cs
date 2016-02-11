@@ -46,10 +46,10 @@ public class MenuCommands : MonoBehaviour {
 	public void NewGame()
 	{
 
-		SceneManager.LoadScene("AxelTest");
+		SceneManager.LoadScene("Test_Fielder");
 		manager.SwitchState(new PlayState(manager));
 		canvas.transform.GetChild(0).gameObject.SetActive(false);
-		canvas.transform.GetChild(2).gameObject.SetActive(false);
+		canvas.transform.GetChild(1).gameObject.SetActive(false);
 
 
 

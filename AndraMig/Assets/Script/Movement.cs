@@ -26,6 +26,16 @@ public class Movement : MonoBehaviour
     private Animator anim;
     private AudioSource audi;
 
+    public bool isTalking = false;
+    public bool talkRange = false;
+    public GameObject currentNPC;
+    public disenableUi dUI;
+
+    void Start ()
+    {
+        dUI = GetComponent<disenableUi>();
+    }
+
     private bool Grounded()
     {
         Ray distToGround = new Ray(new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z), Vector3.down);
@@ -56,15 +66,27 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Run();
-        Jump();
-        Attack();
+        if (!isTalking)
+        {
+            Run();
+            Jump();
+            Attack();
+        }
+
+        if (talkRange)
+        {
+            Conversate();
+        }
 
         anim.SetBool("Grounded", Grounded());
 
         //Gravity
         if (!Grounded())
+        {
             rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
+        }
+
+        
     }
 
     void Run()
@@ -134,5 +156,16 @@ public class Movement : MonoBehaviour
     void PlayAudio(AudioClip clip, float volume)
     {
         AudioSource.PlayClipAtPoint(clip, transform.position, volume);
+    }
+
+    void Conversate ()
+    {
+        dUI.canvas.enabled = true;
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            currentNPC.GetComponent<NPC>().NPCState(true);
+            talkRange = false;
+            isTalking = true;
+        }
     }
 }

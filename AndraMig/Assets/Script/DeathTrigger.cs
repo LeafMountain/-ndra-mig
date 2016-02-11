@@ -19,6 +19,11 @@ public class DeathTrigger : MonoBehaviour
             Debug.Log("dead.");
             Invoke("RespawnBuddy", 2);
         }
+
+        if (col.gameObject.tag == "Enemy")
+        {
+            //col.transform.position = 
+        }
     }
 
    public void RespawnBuddy ()
