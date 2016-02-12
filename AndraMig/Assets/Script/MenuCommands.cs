@@ -21,6 +21,8 @@ public class MenuCommands : MonoBehaviour {
 	private TextAsset returnToMainMenuText;
 
 
+
+
 	private bool quitting;
 
 	void Start()
@@ -50,6 +52,8 @@ public class MenuCommands : MonoBehaviour {
 		manager.SwitchState(new PlayState(manager));
 		canvas.transform.GetChild(0).gameObject.SetActive(false);
 		canvas.transform.GetChild(1).gameObject.SetActive(false);
+		canvas.transform.GetChild(2).gameObject.SetActive(false);
+
 
 
 

@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
     private Collider col;
     private Animator anim;
     private AudioSource audi;
+    private float defaultTriggerRight;
 
     public bool isTalking = false;
     public bool talkRange = false;
@@ -62,15 +63,17 @@ public class Movement : MonoBehaviour
         col = GetComponent<Collider>();
         anim = GetComponent<Animator>();
         audi = GetComponent<AudioSource>();
+        defaultTriggerRight = Input.GetAxisRaw("TriggerRight");
     }
 
     void FixedUpdate()
     {
-        if (!isTalking)
+		if (!isTalking)
         {
             Run();
             Jump();
-            Attack();
+			if (!talkRange)
+	            Attack();
         }
 
         if (talkRange)
@@ -93,7 +96,7 @@ public class Movement : MonoBehaviour
     {
         Vector3 moveForward = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z);
         Vector3 moveRight = new Vector3(cam.transform.right.x, 0, cam.transform.right.z);
-        float sprint = (Input.GetButton("TriggerRight")) ? sprintMultip : 1;
+        float sprint = (Input.GetAxisRaw("TriggerRight") != defaultTriggerRight) ? sprintMultip : 1;
         float horizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
         float inAirMultip = (Grounded()) ? 1 : 0.2f;
         Vector3 moveRotation = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z).normalized * Input.GetAxisRaw("Vertical") + new Vector3(cam.transform.right.x, 0, cam.transform.right.z).normalized * Input.GetAxisRaw("Horizontal") * inAirMultip;
@@ -161,7 +164,7 @@ public class Movement : MonoBehaviour
     void Conversate()
     {
         dUI.canvas.enabled = true;
-        if (Input.GetKeyDown(KeyCode.C))
+		if (Input.GetButtonDown("Fire1"))
         {
             currentNPC.GetComponent<NPC>().NPCState(true);
             talkRange = false;

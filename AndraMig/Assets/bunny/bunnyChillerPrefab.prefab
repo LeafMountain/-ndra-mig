@@ -642,8 +642,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123632}
   m_LocalRotation: {x: 0, y: 0.40634614, z: 0, w: 0.91371924}
-  m_LocalPosition: {x: -147.96909, y: 26.602436, z: -296.20276}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: -147.96909, y: 26.82, z: -296.20276}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 472016}
   - {fileID: 441628}
@@ -847,7 +847,11 @@ MonoBehaviour:
   inConvo: 0
   npcState: 0
   i: 0
-  conversationMessages: []
+  conversationMessages:
+  - Hello traveler!
+  - Are you going to the village?
+  - Could you tell the butcher that I need a delivery for Wednesday?
+  - Thank you! Be careful on your way, the boards of the bridge might be loose!
   dialogueImage: {fileID: 0}
   dialogueText: {fileID: 0}
 --- !u!135 &13582504
@@ -860,7 +864,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 8
   m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!136 &13621262
 CapsuleCollider:
@@ -871,8 +875,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1
-  m_Height: 5
+  m_Radius: 1.2
+  m_Height: 6
   m_Direction: 1
   m_Center: {x: 0, y: 3, z: 0}
 --- !u!137 &13719862

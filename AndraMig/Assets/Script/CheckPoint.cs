@@ -12,6 +12,9 @@ public class CheckPoint : MonoBehaviour
 
     public void OnTriggerEnter (Collider col)
     {
-        dt.currentSpawnPoint = this.gameObject;
+		if (col.gameObject.tag == "Player")
+		{
+			dt.currentSpawnPoint = this.gameObject;
+		}
     }
 }

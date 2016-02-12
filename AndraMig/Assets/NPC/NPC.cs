@@ -19,38 +19,27 @@ public class NPC : MonoBehaviour {
 	bool clickable = false;
 	private float timer = 0;
 
-
 	private GameObject playerBuddy;
 	Movement scriptReference;
 
-	/*
-	 * player needs:
-	 * isTalking bool
-	 * currentNPC GameObject
-	 */
-
 	// Canvas variables.
 	public GameObject dialogueImage;
-//	public Image dialogueImage; // Referencing players canvas for conversations.
-	public Text dialogueText;
+	private Text dialogueText;
 
 	void Awake() {
 		playerBuddy = GameObject.FindGameObjectWithTag("Player");
+		dialogueText = dialogueImage.GetComponentInChildren<Text>();
 	}
 
 	void Start() {
 		scriptReference = playerBuddy.GetComponent<Movement>();
 		dialogueImage.SetActive(false);
-//		dialogueImage.enabled = false;
-//		dialogueText.enabled = false;
 	}
 
 	public void NPCState(bool state) {
 		inConvo = state;
 		npcState = (inConvo) ? 1 : 0;
 		dialogueImage.SetActive(state);
-//		dialogueImage.enabled = state;
-//		dialogueText.enabled = state;
 		clickable = state;
 		if (inConvo) {
 			ChatterTime();
@@ -62,7 +51,7 @@ public class NPC : MonoBehaviour {
 	}
 
 	void Update() {
-		if (clickable && Input.GetKeyDown(KeyCode.C)) {
+		if (clickable && Input.GetButtonDown("Fire1")) {
 			ChatterTime();
 		}
 	}

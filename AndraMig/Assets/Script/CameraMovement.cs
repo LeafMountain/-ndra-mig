@@ -9,8 +9,17 @@ public class CameraMovement : MonoBehaviour
     public float distanceToTarget;      //How far away from the target the camera should be
     public float smooth = 5;            //How smooth the camera follows (Higher = faster)
 
+    private float defaultTriggerLeft;
+
+    void Awake()
+    {
+        defaultTriggerLeft = Input.GetAxisRaw("TriggerLeft");
+        Debug.Log(defaultTriggerLeft);
+    }
+
     void LateUpdate()
     {
+        Debug.Log(Input.GetAxisRaw("TriggerLeft"));
         //How do we want to move the camera?
         Vector3 behind = new Vector3(cameraTarget.transform.position.x - cameraTarget.transform.forward.x * distanceToTarget, cameraTarget.transform.position.y + distanceToGround, cameraTarget.transform.position.z - cameraTarget.transform.forward.z * distanceToTarget);
         Vector3 distToGr = new Vector3(0, distanceToGround, 0);
@@ -29,7 +38,7 @@ public class CameraMovement : MonoBehaviour
         if (hRight != 0 || vRight != 0)
             transform.position = Vector3.Lerp(transform.position, transform.position + transform.right * hRight + transform.up * vRight * cameraHeight, Time.deltaTime * smooth * 2);
         //Press Fire1 to put camera behind target
-        if (Input.GetButton("TriggerLeft"))
+        if (Input.GetAxisRaw("TriggerLeft") != defaultTriggerLeft)
             transform.position = Vector3.Lerp(transform.position, behind, Time.deltaTime * smooth);
         //Move with target
 
