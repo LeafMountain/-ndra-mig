@@ -11,18 +11,24 @@
 * Alexander Lövberg
 * Azul Romo Flórez
 
-#### Graphics
+#### Character Modelling
 * Marcel Fontes
+* Kevin Fransson
+
+#### Environment Modelling
 * Patrik Björck
 * Kevin Fransson
 * Nora Cossa Åkesson
 * David Dessantis
 
+#### Rigging and Animation
+* Marcel Fontes
+
 #### UX Programming
 * Axel Stenkrona
 * Azul Romo Flórez
 
-#### UI Graphics
+#### UI Art
 * Nora Cossa Åkesson
 
 #### Audio
