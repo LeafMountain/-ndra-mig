@@ -1,41 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour {
 
-    public int health = 3;
+    public readonly int maxHealth = 3;
+    public int currentHealth;
 
-    private Renderer rend;
-    private Color originalColor;
+    public UnityEvent OnDamaged;
+    public UnityEvent OnHealed;
+    public UnityEvent OnNoHealth;
 
-    public bool damage;
-
-    void Awake() {
-        rend = GetComponentInChildren<Renderer>();
-        originalColor = rend.material.color;
+    void Start(){
+        currentHealth = maxHealth;
     }
 
-    void Update(){
-        if(damage){
-            Damage(1);
-            damage = false;
+    public void Damage(int amount) {
+        if(amount < 0){
+            Debug.LogError("Cant damage negative damage");
+            return;
+        }
+
+        currentHealth -= amount;
+
+        OnDamaged.Invoke();
+
+        if (currentHealth <= 0){
+            currentHealth = 0;
+            OnNoHealth.Invoke();
         }
     }
 
-    public void Damage(int damage) {
-        health -= damage;
-        rend.material.color = Color.red;
+    public void Heal(int amount){
+        currentHealth += amount;
 
-        if (health <= 0){
-            Destroy(gameObject);
-        }
-
-        Invoke("OriginalColor", 1f);
+        OnHealed.Invoke();
     }
-
-    void OriginalColor()
-    {
-        rend.material.color = originalColor;
-    }
-    
 }

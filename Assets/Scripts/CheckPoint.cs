@@ -1,20 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Collider))]
 public class CheckPoint : MonoBehaviour
 {
-    public DeathTrigger dt;
-
-    public void Start ()
-    {
-        dt = GameObject.Find("DeathTrigger").GetComponent<DeathTrigger>();
-    }
-
     public void OnTriggerEnter (Collider col)
     {
-		if (col.gameObject.tag == "Player")
-		{
-			dt.currentSpawnPoint = this.gameObject;
+		if (col.GetComponent<Respawnable>()) {
+			col.GetComponent<Respawnable>().spawnPoint = transform.position;
 		}
     }
 }

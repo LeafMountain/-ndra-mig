@@ -1,34 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Collider))]
 public class DeathTrigger : MonoBehaviour
 {
-    public GameObject currentSpawnPoint;
-    GameObject buddy;
-
-    public void Start ()
-    {
-        buddy = GameObject.FindGameObjectWithTag("Player");
-    }
-
-	
     public void OnTriggerEnter (Collider col)
     {
-        if (col.gameObject.tag == "Player")
-        {
-            Debug.Log("dead.");
-            Invoke("RespawnBuddy", 2);
-        }
-
-        if (col.gameObject.tag == "Enemy")
-        {
-            //col.transform.position = 
+        if(col.GetComponent<Health>()){
+            col.GetComponent<Health>().Damage(99999);
         }
     }
-
-   public void RespawnBuddy ()
-    {
-        buddy.transform.position = currentSpawnPoint.transform.position;
-    }
-
 }
