@@ -1,5 +1,5 @@
 # Cuddle Fur
-3D Platformer | Cartoony Graphics
+## 3D Platformer | Cartoony Graphics
 
 ### Credits
 #### Gameplay Programming
