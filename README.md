@@ -15,10 +15,15 @@
 * Marcel Fontes
 * Patrik Björck
 * Kevin Fransson
+* Nora Cossa Åkesson
+* David Dessantis
 
 #### UX Programming
 * Axel Stenkrona
 * Azul Romo Flórez
+
+#### UI Graphics
+* Nora Cossa Åkesson
 
 #### Audio
 * Axel Stenkrona
