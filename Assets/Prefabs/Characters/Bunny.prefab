@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 13582504}
   - component: {fileID: 13621262}
   m_Layer: 0
-  m_Name: bunnyChillerPrefab
+  m_Name: Bunny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

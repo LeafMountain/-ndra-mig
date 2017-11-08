@@ -1321,7 +1321,7 @@ GameObject:
   - component: {fileID: 13641944}
   - component: {fileID: 11452894}
   m_Layer: 0
-  m_Name: Bear Prefab
+  m_Name: Bear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

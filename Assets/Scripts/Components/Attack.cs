@@ -19,7 +19,7 @@ public class Attack : MonoBehaviour
         if (col.GetComponent<Rigidbody>())
         {
             if (col.GetComponent<Health>())
-                col.GetComponent<Health>().Damaged(damageStrenght);
+                // col.GetComponent<Health>().Damaged(damageStrenght);
             col.GetComponent<Rigidbody>().AddForce((transform.forward + transform.up) * 10, ForceMode.Impulse);
             //PlayAudio(hitSound[Random.Range(0, hitSound.Length)], col.transform.position);
         }
