@@ -7,7 +7,7 @@
 * Azul Romo Flórez
 * Max Huber
 
-#### Level Desing
+#### Level Design
 * Alexander Lövberg
 * Azul Romo Flórez
 
