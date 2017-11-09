@@ -8,7 +8,7 @@ public class Trigger : MonoBehaviour {
 
 	public UnityTriggerEvent OnTriggerEntered;
 	public UnityTriggerEvent OnTriggerExited;
-
+	
 	void OnTriggerEnter(Collider col){
 		OnTriggerEntered.Invoke(col);
 	}
