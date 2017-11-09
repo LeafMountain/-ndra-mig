@@ -7,13 +7,13 @@ public class PlayerController : MonoBehaviour {
 	private Mover mover;
 	private Jumper jumper;
 
-	private CameraMovement cam;
+	// private CameraMovement cam;
 
 	private void Start(){
 		mover = GetComponent<Mover>();
 		jumper = GetComponent<Jumper>();
 
-		cam = GameObject.FindObjectOfType<CameraMovement>();
+		// cam = GameObject.FindObjectOfType<CameraMovement>();
 	}
 
 	private void FixedUpdate(){
@@ -26,8 +26,13 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void MoveInput(){
-		Vector3 verticalDirection = cam.Forward.normalized * Input.GetAxis("Vertical");
-		Vector3 horizontalDirection = cam.Right.normalized * Input.GetAxis("Horizontal");
+		Transform cameraTranform = Camera.main.transform;
+		Vector3 camForward = new Vector3(cameraTranform.forward.x, 0, cameraTranform.forward.z).normalized;
+		Vector3 camRight = new Vector3(cameraTranform.right.x, 0, cameraTranform.right.z).normalized;
+		
+
+		Vector3 verticalDirection = camForward * Input.GetAxis("Vertical");
+		Vector3 horizontalDirection = camRight * Input.GetAxis("Horizontal");
 		bool sprint = Input.GetButton("Fire3");
 		
 

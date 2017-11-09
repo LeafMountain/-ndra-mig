@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9529564}
   - component: {fileID: 6571482}
   - component: {fileID: 13535106}
-  - component: {fileID: 11481144}
   - component: {fileID: 11437988}
   m_Layer: 0
   m_Name: Beaver
@@ -561,8 +560,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100076}
-  m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -137.26167, y: 57.32, z: -365.64532}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 26.449419, y: 8.873142, z: 20.147501}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 494826}
@@ -875,33 +874,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd88a3398c707f4485fc255d7068371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  dUI: {fileID: 0}
---- !u!114 &11481144
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df39a4e8936db2e47beb1a9d44183fb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  this_RB: {fileID: 0}
-  anim: {fileID: 0}
-  playerBuddy: {fileID: 0}
-  buddyScript: {fileID: 0}
-  attackBuddyDistance: 0
-  tailCollider: {fileID: 0}
-  patrolSpeed: 2
-  patrolIdleDelay: 0.5
-  chaseSpeed: 5
-  attackIdleDelay: 0
-  patrolNodes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  currentHealth: 0
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnHealed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnNoHealth:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!135 &13535106
 SphereCollider:
   m_ObjectHideFlags: 1

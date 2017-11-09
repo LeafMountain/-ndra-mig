@@ -1319,7 +1319,6 @@ GameObject:
   - component: {fileID: 5400192}
   - component: {fileID: 13554274}
   - component: {fileID: 13641944}
-  - component: {fileID: 11452894}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -2112,8 +2111,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -119.622055, y: 59.1, z: -474.20535}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.936235, y: 8.873142, z: 25.813166}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 471966}
@@ -3171,25 +3170,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11452894
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81980e5ac19db4e42b0b034613d5dbbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inConvo: 0
-  npcState: 0
-  i: 0
-  conversationMessages:
-  - Hello I am so glad to meet yoiu balabl please halp
-  - So will you halp? Then ples go to the beaverking and make him go away
-  - the mountain is right behind us pease hurry before we dry out from no water source...
-  dialogueImage: {fileID: 0}
 --- !u!135 &13554274
 SphereCollider:
   m_ObjectHideFlags: 1
