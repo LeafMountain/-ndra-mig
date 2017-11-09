@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114532555343819170}
   - component: {fileID: 65843933890400738}
   - component: {fileID: 114786123112350232}
+  - component: {fileID: 114574735484565744}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -65,6 +66,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6b0dfcffb468d4abdbc27411689295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114574735484565744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753689670613512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31bc97c5846732341aed4a8518fc5763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTriggerEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114532555343819170}
+        m_MethodName: SetCheckpoint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityTriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnTriggerExited:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityTriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114786123112350232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,6 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7958925b8403fa042a4f2c80ee143c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  label: Checkpoint
+  labelColor: {r: 1, g: 1, b: 1, a: 1}
   shape: 0
   gizmoColor: {r: 0.03676468, g: 0.8405679, b: 1, a: 0.491}
   size: {x: 1, y: 1, z: 1}

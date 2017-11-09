@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class GizmoShape : MonoBehaviour {
+	public string label;
+	public Color labelColor = Color.white;
+
+	
 	public enum Shape { Cube, Sphere }
 
 	public Shape shape = Shape.Cube;
@@ -37,5 +42,19 @@ public class GizmoShape : MonoBehaviour {
 			Gizmos.DrawSphere(Vector3.zero, size.x);
 			
 		}
+
+		// Handles.BeginGUI();
+
+		// GUIContent labelContent = new GUIContent(label);
+		// GUIStyle labelStyle = new GUIStyle();
+		// labelStyle.fontSize = 30;
+		// labelStyle.normal.textColor = labelColor;
+
+		// Vector2 textSize = labelStyle.CalcSize(labelContent);
+		// Vector3 screenPoint = Camera.current.WorldToScreenPoint(transform.position);
+
+		// Handles.Label(Camera.current.ScreenToWorldPoint(screenPoint), labelContent, labelStyle);
+		
+		// Handles.EndGUI();
 	}
 }

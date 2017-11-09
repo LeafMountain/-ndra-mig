@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114175344039786996}
   - component: {fileID: 114470864277780802}
   - component: {fileID: 65877237375332842}
+  - component: {fileID: 114064770052142990}
   m_Layer: 0
   m_Name: DeathTrigger
   m_TagString: Untagged
@@ -54,6 +55,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114064770052142990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1635718209884584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31bc97c5846732341aed4a8518fc5763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTriggerEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114175344039786996}
+        m_MethodName: Damage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityTriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnTriggerExited:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityTriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114175344039786996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670b6d3fe4b2a2f4292dfa994610ebe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 9999
 --- !u!114 &114470864277780802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7958925b8403fa042a4f2c80ee143c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  label: 
+  labelColor: {r: 1, g: 1, b: 1, a: 1}
   shape: 0
   gizmoColor: {r: 1, g: 0, b: 0, a: 0.559}
   size: {x: 1, y: 1, z: 1}
