@@ -15,8 +15,9 @@ public class Animate : MonoBehaviour {
 		gravitation = GetComponent<Gravitation>();
 	}
 
-	private void Update(){
-		animator.SetBool("Grounded", gravitation.IsGrounded);
+	private void LateUpdate(){
+		animator.SetBool("Grounded", gravitation.IsGrounded);		
+
 		if(gravitation.IsGrounded){
 			if(mover){
 				animator.SetFloat("Speed", mover.Velocity);

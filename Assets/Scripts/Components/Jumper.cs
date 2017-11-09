@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CharacterController))]
 public class Jumper : MonoBehaviour {
 
-	public float jumpHeight = 2;
+	public float force = 2;
+	private float forceLeft;
 
-	private Rigidbody _rigidbody;
-	public Rigidbody Rigidbody {
-		get {
-			if(_rigidbody == null){
-				_rigidbody = GetComponent<Rigidbody>();
-			}
+	CharacterController controller;
+	Gravitation gravity;
 
-			return _rigidbody;
-		}
+	void Start(){
+		controller = GetComponent<CharacterController>();
+		gravity = GetComponent<Gravitation>();
+
+		forceLeft = force;
 	}
 
 	public void Jump(){
-		if(GetComponent<Gravitation>().IsGrounded){
-			Rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+		if(gravity.IsGrounded){
+			controller.Move(Vector3.up * forceLeft);
+			forceLeft *= .5f;
+		} else if(forceLeft != force && gravity.IsGrounded){
+			forceLeft = force;
 		}
 	}
 }

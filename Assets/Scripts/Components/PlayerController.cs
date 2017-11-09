@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour {
 		Vector3 camForward = new Vector3(cameraTranform.forward.x, 0, cameraTranform.forward.z).normalized;
 		Vector3 camRight = new Vector3(cameraTranform.right.x, 0, cameraTranform.right.z).normalized;
 		
-
 		Vector3 verticalDirection = camForward * Input.GetAxis("Vertical");
 		Vector3 horizontalDirection = camRight * Input.GetAxis("Horizontal");
 		bool sprint = Input.GetButton("Fire3");

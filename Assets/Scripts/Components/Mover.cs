@@ -2,32 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CharacterController))]
 public class Mover : MonoBehaviour {
 
 	public float acceleration = 20;
-	public float maxSpeed = 7;
-	public float sprintMultiplier = 2;
+	public float speed = .1f;
+	public float sprintSpeed = .2f;
 
-	public float Velocity { get{ return Rigidbody.velocity.magnitude; } }
+	CharacterController controller;
 
-	private Rigidbody _rigidbody;
-	public Rigidbody Rigidbody {
-		get {
-			if(_rigidbody == null){
-				_rigidbody = GetComponent<Rigidbody>();
-			}
+	float velocity;
+	public float Velocity { get{ return velocity; } }
 
-			return _rigidbody;
-		}
+	// private Rigidbody _rigidbody;
+	// public Rigidbody Rigidbody {
+	// 	get {
+	// 		if(_rigidbody == null){
+	// 			_rigidbody = GetComponent<Rigidbody>();
+	// 		}
+
+	// 		return _rigidbody;
+	// 	}
+	// }
+
+	void Start(){
+		controller = GetComponent<CharacterController>();
+	}
+
+	void Update(){
+		velocity = GetComponent<CharacterController>().velocity.magnitude;
 	}
 
 	public void Move(Vector3 moveDirection, bool sprint = false){
-		float sprintMultip = ((sprint) ? sprintMultiplier : 1);
+		float speed = ((sprint) ? sprintSpeed : this.speed);
 
-		if(Velocity < maxSpeed * sprintMultip){
-			Rigidbody.AddForce(moveDirection * acceleration * sprintMultip, ForceMode.Acceleration);
-		}
+		GetComponent<CharacterController>().Move(moveDirection * speed);
 
 		transform.LookAt(transform.position + moveDirection);
 	}
