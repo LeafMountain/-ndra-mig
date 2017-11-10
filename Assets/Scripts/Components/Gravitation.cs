@@ -12,7 +12,9 @@ public class Gravitation : MonoBehaviour {
 	public float yOffset = .1f;
 	public float distanceToGround = .5f;
 
-	float gravity;
+	public float gravity = -12;
+
+	Vector3 velocity;
 
 	public bool IsGrounded {
 		get {
@@ -29,15 +31,20 @@ public class Gravitation : MonoBehaviour {
 	}
 
 	void Update(){
-		if(!IsGrounded){
-			if(gravity < force){
-				gravity += fallSpeed;
-			}
+		controller.Move(Vector3.up * gravity * Time.deltaTime);
 
-			controller.Move(Vector3.down * gravity);
+		//Gravity
+		this.velocity.y += gravity * Time.deltaTime;
+		
+		// Vector3 velocity = Vector3.up * velocityY;
+		controller.Move(velocity * Time.deltaTime);
 
-		} else if(gravity > 0 && IsGrounded) {
-			gravity = 0;
+		if(IsGrounded){
+			velocity.y = 0;
 		}
+	}
+
+	public void AddForce(Vector3 direction, float force){
+		float velocity = Mathf.Sqrt(-2 * gravity * force);
 	}
 }

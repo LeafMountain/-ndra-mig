@@ -7,9 +7,14 @@ public class Jumper : MonoBehaviour {
 
 	public float force = 2;
 	private float forceLeft;
+	public float jumpHeight;
 
 	CharacterController controller;
 	Gravitation gravity;
+	float _gravity = -12f;
+
+	Vector3 velocity;
+	float velocityY;
 
 	void Start(){
 		controller = GetComponent<CharacterController>();
@@ -20,10 +25,19 @@ public class Jumper : MonoBehaviour {
 
 	public void Jump(){
 		if(gravity.IsGrounded){
-			controller.Move(Vector3.up * forceLeft);
-			forceLeft *= .5f;
-		} else if(forceLeft != force && gravity.IsGrounded){
-			forceLeft = force;
+			float jumpVelocity = Mathf.Sqrt(-2 * _gravity * jumpHeight);
+			velocityY = jumpVelocity;
+			// gravity.AddForce(Vector3.up, jumpHeight);
+		}
+	}
+
+	void Update(){
+		velocityY += _gravity * Time.deltaTime;
+		Vector3 velocity = Vector3.up * velocityY;
+		controller.Move(velocity * Time.deltaTime);
+
+		if(controller.isGrounded){
+			velocityY = 0;
 		}
 	}
 }
