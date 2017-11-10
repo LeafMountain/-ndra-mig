@@ -115,7 +115,6 @@ GameObject:
   m_Component:
   - component: {fileID: 448316}
   - component: {fileID: 9519878}
-  - component: {fileID: 11479548}
   - component: {fileID: 13582504}
   - component: {fileID: 13621262}
   m_Layer: 0
@@ -656,9 +655,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123632}
-  m_LocalRotation: {x: 0, y: 0.40634614, z: 0, w: 0.91371924}
-  m_LocalPosition: {x: -147.96909, y: 26.82, z: -296.20276}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalRotation: {x: -0, y: 0.40634614, z: -0, w: 0.91371924}
+  m_LocalPosition: {x: 17.900255, y: 8.873142, z: 23.328852}
+  m_LocalScale: {x: 0.6019025, y: 0.6, z: 0.6019025}
   m_Children:
   - {fileID: 472016}
   - {fileID: 441628}
@@ -862,26 +861,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11479548
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81980e5ac19db4e42b0b034613d5dbbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inConvo: 0
-  npcState: 0
-  i: 0
-  conversationMessages:
-  - Hello traveler!
-  - Are you going to the village?
-  - Could you tell the butcher that I need a delivery for Wednesday?
-  - Thank you! Be careful on your way, the boards of the bridge might be loose!
-  dialogueImage: {fileID: 0}
 --- !u!135 &13582504
 SphereCollider:
   m_ObjectHideFlags: 1

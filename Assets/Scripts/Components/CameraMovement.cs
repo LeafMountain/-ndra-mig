@@ -40,8 +40,8 @@ public class CameraMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(((lookTarget.transform.position + Vector3.up) - transform.position)), Time.deltaTime * smooth);
 
         //Right joystick movement
-        float hRight = Input.GetAxisRaw("HorizontalRight");
-        float vRight = Input.GetAxisRaw("VerticalRight");
+        float hRight = 0;
+        float vRight = 0;
 
         float cameraHeight = (transform.position.y > cameraTarget.transform.position.y + 1) ? 1 : 0.01f;
 
@@ -49,8 +49,8 @@ public class CameraMovement : MonoBehaviour
         if (hRight != 0 || vRight != 0)
             transform.position = Vector3.Lerp(transform.position, transform.position + transform.right * hRight + transform.up * vRight * cameraHeight, Time.deltaTime * smooth * 2);
         //Press Fire1 to put camera behind target
-        if (Input.GetAxisRaw("TriggerLeft") != defaultTriggerLeft)
-            transform.position = Vector3.Lerp(transform.position, behind, Time.deltaTime * smooth);
+        // if (Input.GetAxisRaw("TriggerLeft") != defaultTriggerLeft)
+        //     transform.position = Vector3.Lerp(transform.position, behind, Time.deltaTime * smooth);
         //Move with target
 
         else if (Vector3.Distance(transform.position, cameraTarget.transform.position) > distanceToTarget)
