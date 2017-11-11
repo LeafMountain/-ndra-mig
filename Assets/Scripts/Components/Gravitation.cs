@@ -4,17 +4,14 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class Gravitation : MonoBehaviour {
-
-	public float force = 0.2f;
-	public float fallSpeed = 1;
-
 	[Space]
 	public float yOffset = .1f;
 	public float distanceToGround = .5f;
 
 	public float gravity = -12;
 
-	Vector3 velocity;
+	float velocityY;
+	Vector3 addedVelocity;
 
 	public bool IsGrounded {
 		get {
@@ -31,20 +28,23 @@ public class Gravitation : MonoBehaviour {
 	}
 
 	void Update(){
-		controller.Move(Vector3.up * gravity * Time.deltaTime);
-
 		//Gravity
-		this.velocity.y += gravity * Time.deltaTime;
-		
-		// Vector3 velocity = Vector3.up * velocityY;
+		velocityY += gravity * Time.deltaTime;
+
+		//Add velocities together
+		Vector3 velocity = addedVelocity + Vector3.up * velocityY;
+
+		//Apply velocity
 		controller.Move(velocity * Time.deltaTime);
 
 		if(IsGrounded){
-			velocity.y = 0;
+			addedVelocity = Vector3.zero;
+			velocityY = 0;
 		}
 	}
 
 	public void AddForce(Vector3 direction, float force){
-		float velocity = Mathf.Sqrt(-2 * gravity * force);
+		float addVelocity = Mathf.Sqrt(-2 * gravity * force);
+		addedVelocity = direction * addVelocity;
 	}
 }

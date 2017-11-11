@@ -6,14 +6,12 @@ public class PlayerController : MonoBehaviour {
 
 	private Mover mover;
 	private Jumper jumper;
-
-	// private CameraMovement cam;
+	private GrapplingHook grapplingHook;
 
 	private void Start(){
 		mover = GetComponent<Mover>();
 		jumper = GetComponent<Jumper>();
-
-		// cam = GameObject.FindObjectOfType<CameraMovement>();
+		grapplingHook = GetComponent<GrapplingHook>();
 	}
 
 	private void FixedUpdate(){
@@ -22,6 +20,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		if(jumper){
 			JumpInput();
+		}
+		if(grapplingHook){
+			GrapplingInput();
 		}
 	}
 
@@ -33,7 +34,6 @@ public class PlayerController : MonoBehaviour {
 		Vector3 verticalDirection = camForward * Input.GetAxis("Vertical");
 		Vector3 horizontalDirection = camRight * Input.GetAxis("Horizontal");
 		bool sprint = Input.GetButton("Fire3");
-		
 
 		if(verticalDirection != Vector3.zero || horizontalDirection != Vector3.zero){
 			mover.Move(verticalDirection + horizontalDirection, sprint);
@@ -43,6 +43,12 @@ public class PlayerController : MonoBehaviour {
 	private void JumpInput(){
 		if(Input.GetButton("Jump")){
 			jumper.Jump();
+		}
+	}
+
+	private void GrapplingInput(){
+		if(Input.GetButtonDown("Fire1")){
+			grapplingHook.Grapple();
 		}
 	}
 }
