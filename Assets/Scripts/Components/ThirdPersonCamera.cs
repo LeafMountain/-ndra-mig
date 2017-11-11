@@ -22,6 +22,11 @@ public class ThirdPersonCamera : MonoBehaviour
     public bool invertYaw;
     public bool invertPitch;
 
+    void Start(){
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     void LateUpdate(){
         float invertYaw = (this.invertYaw) ? -1 : 1;
         float invertPitch = (this.invertPitch) ? -1 : 1;
