@@ -9,16 +9,16 @@ public class Bouncy : MonoBehaviour
     public float force = 200f;
 
     public void Bounce (Collider col) {
-        Rigidbody rigidbody = col.GetComponent<Rigidbody>();
+        Gravitation gravity = col.GetComponent<Gravitation>();
 
-        if (rigidbody) {
+        if (gravity) {
             switch (mode) {
                 case BounceMode.Pushback : 
-                    rigidbody.AddForce((rigidbody.position - transform.position).normalized * force, ForceMode.Impulse);
+                    gravity.AddForce((gravity.transform.position - transform.position).normalized, force);
                     break;
 
                 case BounceMode.Up :
-                    rigidbody.AddForce(Vector3.up * force, ForceMode.Impulse);
+                    gravity.AddForce(Vector3.up, force);
                     break;
 
                 default:

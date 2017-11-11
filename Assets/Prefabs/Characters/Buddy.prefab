@@ -186,10 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b29b3ce9090c404a8d4c8af954829a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 0.5
   yOffset: 1
   distanceToGround: 0.1
-  fallSpeed: 0.007
+  gravity: -12
 --- !u!114 &114501956395484892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,7 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241a5b19c9b45364fafbcedf63b35f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 20
   speed: 0.1
   sprintSpeed: 0.2
 --- !u!114 &114832060783564392
@@ -254,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39be08af72da6b04794ab5becf4ed51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 4
+  jumpHeight: 2
 --- !u!119 &119466734973091366
 Projector:
   m_ObjectHideFlags: 1
