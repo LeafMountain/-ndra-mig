@@ -5,27 +5,41 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Mover : MonoBehaviour {
 
-	public float speed = .1f;
+	public float normalSpeed = .1f;
 	public float sprintSpeed = .2f;
+
+	float currentSpeed;
+	float targetSpeed;
+	float speedSmoothVelocity;
+	float speedSmoothTime = .1f;
 
 	CharacterController controller;
 
 	Vector3 velocity;
 	public float Velocity { get{ return velocity.magnitude; } }
 
+	[HideInInspector]
+	public float currentSpeedPercentage;
+
+	Vector3 lastPosition;
+
 	void Start(){
 		controller = GetComponent<CharacterController>();
 	}
 
 	void Update(){
-		velocity = controller.velocity;
+		velocity = (lastPosition - transform.position);
+		lastPosition = transform.position;
+
+		currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
+		currentSpeedPercentage = currentSpeed / sprintSpeed;
+
+		targetSpeed = 0;
 	}
 
 	public void Move(Vector3 moveDirection, bool sprint = false){
-		float speed = ((sprint) ? sprintSpeed : this.speed);
-
-		controller.Move(moveDirection * speed);
-
-		transform.LookAt(transform.position + moveDirection);
+		targetSpeed = ((sprint) ? sprintSpeed : normalSpeed);
+		controller.Move(moveDirection * currentSpeed);
+		transform.LookAt(moveDirection + transform.position);
 	}
 }

@@ -16,16 +16,15 @@ public class Animate : MonoBehaviour {
 	}
 
 	private void LateUpdate(){
-		animator.SetBool("Grounded", gravitation.IsGrounded);		
+		animator.SetBool("Grounded", gravitation.IsGrounded);
 
-		if(gravitation.IsGrounded){
-			if(mover){
-				animator.SetFloat("Speed", mover.Velocity);
-			}
-		} else {
-			if(mover){
-				animator.SetFloat("Speed", 0);
-			}
+		if(mover){
+			animator.SetFloat("Speed", mover.currentSpeedPercentage);
 		}
+
+		if(GetComponent<Jumper>()){
+			animator.SetBool("Jump", GetComponent<Jumper>().jumped);
+		}
+
 	}
 }

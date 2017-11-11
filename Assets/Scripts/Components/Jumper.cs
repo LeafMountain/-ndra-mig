@@ -6,6 +6,7 @@ using UnityEngine;
 public class Jumper : MonoBehaviour {
 
 	public float jumpHeight;
+	public bool jumped;
 
 	CharacterController controller;
 	Gravitation gravity;
@@ -16,8 +17,12 @@ public class Jumper : MonoBehaviour {
 	}
 
 	public void Jump(){
+		jumped = false;
+		
 		if(gravity.IsGrounded){
 			gravity.AddForce(Vector3.up, jumpHeight);
+			jumped = true;
 		}
+
 	}
 }
