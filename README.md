@@ -13,7 +13,7 @@
 
 #### Graphics
 * Marcel Fontes
-* Patrik Björck
+* Patrik Björk
 * Kevin Fransson
 * Nora Cossa Åkesson
 * David Dessantis
